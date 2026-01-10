@@ -1,0 +1,11 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "作成者": "text",
+    "カテゴリー": "multitext",
+    "URL": "text",
+    "作成日時": "datetime"
+  }
+}

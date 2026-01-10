@@ -1,0 +1,25 @@
+# ナレッジベース
+
+filters:
+  and:
+    - note["base"] == link("ナレッジベース.base")
+properties:
+  file.name:
+    displayName: ドキュメント名
+  作成者:
+    displayName: 作成者
+  カテゴリー:
+    displayName: カテゴリー
+  URL:
+    displayName: URL
+  作成日時:
+    displayName: 作成日時
+views:
+  - type: table
+    name: Table View
+    order:
+      - file.name
+      - 作成者
+      - カテゴリー
+      - URL
+      - 作成日時
