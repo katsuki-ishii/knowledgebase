@@ -4,8 +4,9 @@ base: "[[ナレッジベース.base]]"
 カテゴリー:
   - 開発ツール
 作成日時: 2025-10-18T15:30:00
+aliases: [Tsumiki, tsumiki]
 ---
-Tsumiki, 
+[[Tsumiki]], 
 
 Claude code谷口さん、
 

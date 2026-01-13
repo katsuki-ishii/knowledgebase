@@ -4,12 +4,13 @@ base: "[[ナレッジベース.base]]"
 カテゴリー:
   - AWS
 作成日時: 2026-01-08T01:13:00
+aliases: [Cognito Authorizer, Cognito, cognito, Authorizer, authorizer]
 ---
-# API Gateway Cognito Authorizer まとめ
+# API Gateway [[Cognito Authorizer]] まとめ
 
-## Cognito Authorizerとは？
+## [[Cognito Authorizer]]とは？
 
-API Gateway Cognito Authorizer とは、Cognito が発行した JWT（ログイン証明）を API Gateway がリクエスト受付時に検証する仕組みである。
+API Gateway [[Cognito Authorizer]] とは、[[Cognito Authorizer|Cognito]] が発行した JWT（ログイン証明）を API Gateway がリクエスト受付時に検証する仕組みである。
 
 目的は、
 
@@ -22,13 +23,13 @@ API Gateway Cognito Authorizer とは、Cognito が発行した JWT（ログイ�
 
 ## 登場人物
 
-### Cognito
+### [[Cognito Authorizer|Cognito]]
 
 - AWS の認証専門サービス
 - ユーザー登録、ログイン、パスワード管理を担当
 - ログイン成功時に JWT を発行する
 
-### JWT（JSON Web Token）
+### JWT（[[設定ファイル言語|JSON]] Web Token）
 
 - ログイン済みであることを示す改ざん不可能なトークン
 - 有効期限、ユーザーIDなどが含まれる
@@ -75,12 +76,12 @@ API Gateway Cognito Authorizer とは、Cognito が発行した JWT（ログイ�
 
 ---
 
-## Cognito Authorizer がやっていること
+## [[Cognito Authorizer]] がやっていること
 
 API Gateway が Lambda を呼ぶ前に以下を行う。
 
 1. Authorization ヘッダから JWT を取得
-2. JWT が Cognito 発行かを検証
+2. JWT が [[Cognito Authorizer|Cognito]] 発行かを検証
 3. 有効期限が切れていないかを確認
 4. OKなら Lambda を実行
 5. NGなら 401 Unauthorized を返す
@@ -100,7 +101,7 @@ if (!verifyJwt(event.headers.authorization)) {
 
 ```
 
-### Cognito Authorizer を使う場合
+### [[Cognito Authorizer]] を使う場合
 
 ```javascript
 const claims = event.requestContext.authorizer.claims
@@ -120,13 +121,13 @@ claims は JWT の中身で、API Gateway が展開して Lambda に渡す。
 
 - sub: ユーザーID
 - email: メールアドレス
-- cognito:groups: 所属グループ
+- [[Cognito Authorizer|cognito]]:groups: 所属グループ
 
 ---
 
 ## 認証と認可の役割分担
 
-- 認証（誰か）: Cognito Authorizer
+- 認証（誰か）: [[Cognito Authorizer]]
 - 認可（何をしていいか）: Lambda
 
 具体例：
@@ -142,16 +143,16 @@ if (!claims['cognito:groups']?.includes('admin')) {
 
 ## コストについて
 
-- Cognito Authorizer 自体は無料
+- [[Cognito Authorizer]] 自体は無料
 - API Gateway の料金は変わらない
-- Cognito User Pool は 5万 MAU まで無料
+- [[Cognito Authorizer|Cognito]] User Pool は 5万 MAU まで無料
 - 不正リクエストで Lambda が起動しないため、むしろ安くなる場合がある
 
 ---
 
 ## Lambda 内検証との比較
 
-| 観点 | Cognito Authorizer | Lambda内検証 |
+| 観点 | [[Cognito Authorizer]] | Lambda内検証 |
 | --- | --- | --- |
 | 認証場所 | API入口 | Lambda内部 |
 | セキュリティ | 高い | 低い |
@@ -171,4 +172,4 @@ if (!claims['cognito:groups']?.includes('admin')) {
 
 ## 一文まとめ
 
-API Gateway Cognito Authorizer は、ログイン確認を API の入口で完結させ、Lambda を安全かつシンプルに保つための標準的な設計である。
+API Gateway [[Cognito Authorizer]] は、ログイン確認を API の入口で完結させ、Lambda を安全かつシンプルに保つための標準的な設計である。

@@ -4,35 +4,36 @@ base: "[[ナレッジベース.base]]"
 カテゴリー:
   - JavaScript
 作成日時: 2025-06-17T23:00:00
+aliases: [巻き上げとTDZ, 巻き上げ, TDZ, 巻き上げとtdz, 巻き上げとTdz]
 ---
 
-## 1. 変数宣言・初期化・TDZ（Temporal Dead Zone）
+## 1. 変数[[基礎 Part 8 宣言・代入・再代入|宣言]]・初期化・[[基礎 Part 1 巻き上げとTDZ|TDZ]]（Temporal Dead Zone）
 
-- **宣言（declaration）**: 変数名をスコープに登録するだけ
+- **[[基礎 Part 8 宣言・代入・再代入|宣言]]（declaration）**: 変数名をスコープに登録するだけ
     - 例: `let a;`
 - **初期化（initialization）**: 変数に最初の値を入れる
-    - 例: `let a = 1;`（宣言＋初期化）
-    - 例: `let a; a = 1;`（宣言→初期化）
-- **TDZ**: 宣言はされているが、初期化前で使えない期間
+    - 例: `let a = 1;`（[[基礎 Part 8 宣言・代入・再代入|宣言]]＋初期化）
+    - 例: `let a; a = 1;`（[[基礎 Part 8 宣言・代入・再代入|宣言]]→初期化）
+- **[[基礎 Part 1 巻き上げとTDZ|TDZ]]**: [[基礎 Part 8 宣言・代入・再代入|宣言]]はされているが、初期化前で使えない期間
     - `let`/`const`でのみ発生
     - アクセスすると `ReferenceError`
-- **varとの違い**: `var`は巻き上げ＋初期化(`undefined`)されるのでTDZがない
+- **varとの違い**: `var`は[[基礎 Part 1 巻き上げとTDZ|巻き上げ]]＋初期化(`undefined`)されるので[[基礎 Part 1 巻き上げとTDZ|TDZ]]がない
 
 ---
 
-## 2. Hoisting（巻き上げ）とスコープ解決
+## 2. Hoisting（[[基礎 Part 1 巻き上げとTDZ|巻き上げ]]）とスコープ解決
 
-- **巻き上げ（hoisting）**:
-    - 変数や関数の宣言がスコープの先頭に引っ越しされるように動作
-- **function宣言**: 巻き上げ＋初期化もされる → 定義前でも呼び出せる
-- **関数式（const/letに代入）**: 巻き上げされるのは宣言だけ、初期化されるまでTDZ → 定義前に使うとエラー
+- **[[基礎 Part 1 巻き上げとTDZ|巻き上げ]]（hoisting）**:
+    - 変数や関数の[[基礎 Part 8 宣言・代入・再代入|宣言]]がスコープの先頭に引っ越しされるように動作
+- **function[[基礎 Part 8 宣言・代入・再代入|宣言]]**: [[基礎 Part 1 巻き上げとTDZ|巻き上げ]]＋初期化もされる → 定義前でも呼び出せる
+- **[[基礎 Part 10 関数の定義方法3つ|関数式]]（const/letに[[基礎 Part 8 宣言・代入・再代入|代入]]）**: [[基礎 Part 1 巻き上げとTDZ|巻き上げ]]されるのは[[基礎 Part 8 宣言・代入・再代入|宣言]]だけ、初期化されるまで[[基礎 Part 1 巻き上げとTDZ|TDZ]] → 定義前に使うとエラー
 - **スコープ解決**: どの変数・関数がどのスコープに属するかを事前に決定
 
 ---
 
-## 3. 関数の定義方法
+## 3. [[基礎 Part 10 関数の定義方法3つ|関数の定義方法]]
 
-- **function宣言**:
+- **function[[基礎 Part 8 宣言・代入・再代入|宣言]]**:
 ```javascript
 function greet() {
   return "Hello";
@@ -40,7 +41,7 @@ function greet() {
 greet();
 
 ```
-- **関数式**（変数や定数に代入）:
+- **[[基礎 Part 10 関数の定義方法3つ|関数式]]**（変数や定数に[[基礎 Part 8 宣言・代入・再代入|代入]]）:
 ```javascript
 const greet = function() {
   return "Hello";
@@ -48,7 +49,7 @@ const greet = function() {
 greet();
 
 ```
-- **名前付き関数式**: 主に再帰やデバッグ用
+- **名前付き[[基礎 Part 10 関数の定義方法3つ|関数式]]**: 主に再帰やデバッグ用
 ```javascript
 const fact = function factorial(n) {
   if(n === 0) return 1;
@@ -60,7 +61,7 @@ const fact = function factorial(n) {
 
 ---
 
-## 4. クロージャ（Closure）
+## 4. [[基礎 Part 2クロージャ|クロージャ]]（[[基礎 Part 2クロージャ|Closure]]）
 
 - 「関数が作られたときのスコープ（変数）を記憶し続ける仕組み」
 ```javascript
@@ -76,8 +77,8 @@ countUp(); // 1
 countUp(); // 2
 
 ```
-- 関数の外で宣言した変数は、呼び出しごとに初期化されるが、
-クロージャで包むと「記憶され続ける」
+- 関数の外で[[基礎 Part 8 宣言・代入・再代入|宣言]]した変数は、呼び出しごとに初期化されるが、
+[[基礎 Part 2クロージャ|クロージャ]]で包むと「記憶され続ける」
 
 ---
 
@@ -85,10 +86,10 @@ countUp(); // 2
 
 1. **Parsing（構文解析）**
     - コードを読み込んでエラーや構造を確認
-2. **スコープ解決・Hoisting・TDZ**
-    - 変数や関数のスコープ、TDZの決定
+2. **スコープ解決・Hoisting・[[基礎 Part 1 巻き上げとTDZ|TDZ]]**
+    - 変数や関数のスコープ、[[基礎 Part 1 巻き上げとTDZ|TDZ]]の決定
 3. **実行フェーズ**
-    - 値の代入や関数の呼び出しを実際に処理
+    - 値の[[基礎 Part 8 宣言・代入・再代入|代入]]や関数の呼び出しを実際に処理
 
 ---
 
@@ -112,9 +113,9 @@ countUp(); // 2
 
 ## 8. よく出る落とし穴・覚えておきたいポイント
 
-- TDZ内での変数アクセスで `ReferenceError`
-- 関数宣言と関数式の巻き上げ挙動の違い
-- クロージャを使うことで変数の状態を「記憶」できる
+- [[基礎 Part 1 巻き上げとTDZ|TDZ]]内での変数アクセスで `ReferenceError`
+- [[基礎 Part 10 関数の定義方法3つ|関数宣言]]と[[基礎 Part 10 関数の定義方法3つ|関数式]]の[[基礎 Part 1 巻き上げとTDZ|巻き上げ]]挙動の違い
+- [[基礎 Part 2クロージャ|クロージャ]]を使うことで変数の状態を「記憶」できる
 - V8エンジンの仕組み・JITが高速化のカギ
 - コードは「解析→準備→実行」という流れ
 
@@ -122,7 +123,7 @@ countUp(); // 2
 
 # 具体例・図解集（あとで見返しやすいサンプル）
 
-## TDZ（Temporal Dead Zone）のイメージ
+## [[基礎 Part 1 巻き上げとTDZ|TDZ]]（Temporal Dead Zone）のイメージ
 
 ```javascript
 console.log(x); // ReferenceError: Cannot access 'x' before initialization
@@ -141,7 +142,7 @@ let x = 10;
 
 ---
 
-## Hoistingの違い（function宣言と関数式）
+## Hoistingの違い（function[[基礎 Part 8 宣言・代入・再代入|宣言]]と[[基礎 Part 10 関数の定義方法3つ|関数式]]）
 
 ```javascript
 // function宣言：巻き上げあり
@@ -156,7 +157,7 @@ const sayHi = function() { console.log('hi'); }
 
 ---
 
-## クロージャの典型例
+## [[基礎 Part 2クロージャ|クロージャ]]の典型例
 
 ```javascript
 function createCounter() {
@@ -181,9 +182,9 @@ counter(); // 2
 
 ## よくあるエラー例
 
-- TDZ: `ReferenceError: Cannot access 'x' before initialization`
-- 巻き上げ：関数式でのReferenceError
-- クロージャ：新しいcounterを作るとカウントはリセットされる
+- [[基礎 Part 1 巻き上げとTDZ|TDZ]]: `ReferenceError: Cannot access 'x' before initialization`
+- [[基礎 Part 1 巻き上げとTDZ|巻き上げ]]：[[基礎 Part 10 関数の定義方法3つ|関数式]]でのReferenceError
+- [[基礎 Part 2クロージャ|クロージャ]]：新しいcounterを作るとカウントはリセットされる
 
 ---
 

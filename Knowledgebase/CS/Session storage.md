@@ -1,15 +1,16 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - CS
 作成日時: 2026-01-08T00:12:00
+aliases: [Session storage, SessionStorage, Session Storage, sessionStorage, session storage]
 ---
-# SessionStorage 基礎まとめ
+# [[Session storage|SessionStorage]] 基礎まとめ
 
-## 1. SessionStorageとは何か
+## 1. [[Session storage|SessionStorage]]とは何か
 
-SessionStorageとは、**ブラウザが提供する一時的なデータ保存領域**である。
+[[Session storage|SessionStorage]]とは、**ブラウザが提供する一時的なデータ保存領域**である。
 
 JavaScriptからAPI経由で読み書きでき、**同じタブが開いている間だけ有効**という特徴を持つ。
 
@@ -17,7 +18,7 @@ JavaScriptからAPI経由で読み書きでき、**同じタブが開いてい�
 
 ---
 
-## 2. SessionStorageの保存場所（実体）
+## 2. [[Session storage]]の保存場所（実体）
 
 ### 結論
 
@@ -29,7 +30,7 @@ JavaScriptからAPI経由で読み書きでき、**同じタブが開いてい�
 
 ---
 
-## 3. タブとSessionStorageの関係（図解）
+## 3. タブと[[Session storage|SessionStorage]]の関係（図解）
 
 ```plain text
 [PC]
@@ -45,14 +46,14 @@ JavaScriptからAPI経由で読み書きでき、**同じタブが開いてい�
 
 ```
 
-- 同じURLでもタブが違えばSessionStorageは共有されない
-- タブを閉じた瞬間に、そのタブのSessionStorageは破棄される
+- 同じ[[URI・URL・URN|URL]]でもタブが違えば[[Session storage|SessionStorage]]は共有されない
+- タブを閉じた瞬間に、そのタブの[[Session storage|SessionStorage]]は破棄される
 
 ---
 
 ## 4. なぜ「タブを閉じると消える」のか
 
-SessionStorageは**タブのライフサイクルに紐づいている**ためである。
+[[Session storage|SessionStorage]]は**タブのライフサイクルに紐づいている**ためである。
 
 - ページ更新：消えない
 - ページ遷移：消えない
@@ -66,7 +67,7 @@ SessionStorageは**タブのライフサイクルに紐づいている**ため�
 
 Chromeの開発者ツールの Application タブは、
 
-**ブラウザが内部で管理しているSessionStorageの内容を可視化しているビュー**である。
+**ブラウザが内部で管理している[[Session storage|SessionStorage]]の内容を可視化しているビュー**である。
 
 ```plain text
 JavaScript
@@ -131,7 +132,7 @@ sessionStorage.setItem("registerStep", "2");
 
 ### 例2：画面遷移をまたぐ一時データ
 
-- ログイン前ページURLを一時保存
+- ログイン前ページ[[URI・URL・URN|URL]]を一時保存
 - ログイン後に元のページへ戻す
 
 ```javascript
@@ -143,7 +144,7 @@ sessionStorage.setItem("redirectTo", "/mypage");
 
 ## 8. LocalStorageとの違い（整理）
 
-| 項目 | SessionStorage | LocalStorage |
+| 項目 | [[Session storage|SessionStorage]] | LocalStorage |
 | --- | --- | --- |
 | 管理単位 | タブ | ブラウザ＋ドメイン |
 | 保存期間 | タブが開いている間 | 明示的に削除するまで |
@@ -153,7 +154,7 @@ sessionStorage.setItem("redirectTo", "/mypage");
 
 ## 9. 設計上の鉄則
 
-- SessionStorageには「消えても問題ない情報」だけを入れる
+- [[Session storage|SessionStorage]]には「消えても問題ない情報」だけを入れる
 - 業務データや重要情報は入れない
 - state管理（Vue/Piniaなど）の補助として使う
 
@@ -161,7 +162,7 @@ sessionStorage.setItem("redirectTo", "/mypage");
 
 ## 10. 一文まとめ
 
-SessionStorageとは、**ブラウザがタブ単位で管理する一時的な内部ストレージであり、Chromeでは主にメモリ上に存在し、その内容はDevToolsのApplicationタブから可視化できる**。
+[[Session storage|SessionStorage]]とは、**ブラウザがタブ単位で管理する一時的な内部ストレージであり、Chromeでは主にメモリ上に存在し、その内容はDevToolsのApplicationタブから可視化できる**。
 
 ## 関連
 - [[Cookie]]

@@ -1,15 +1,16 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-23T08:52:00
+aliases: [グローバルCSS, グローバル, global CSS, global]
 ---
-# グローバルCSS設計まとめ
+# [[基礎 Part 33 グローバルCSS|グローバルCSS]]設計まとめ
 
-## 1. 前提：VueのCSSは基本ローカル
+## 1. 前提：Vueの[[ULCOD CSS|CSS]]は基本ローカル
 
-VueのSingle File Component（.vue）では、CSSはデフォルトで**コンポーネント単位**に閉じられる設計になっている。
+VueのSingle File [[基礎 Part 29 コンポーネント|Component]]（.vue）では、[[ULCOD CSS|CSS]]はデフォルトで**[[基礎 Part 29 コンポーネント|コンポーネント]]単位**に閉じられる設計になっている。
 
 ```plain text
 <style scoped>
@@ -21,14 +22,14 @@ VueのSingle File Component（.vue）では、CSSはデフォルトで**コン�
 ```
 
 - `scoped` は Vue 独自の仕組み
-- このCSSは「このコンポーネントのHTMLにだけ」効く
-- 大規模開発ではCSSの影響範囲を制御するため必須
+- この[[ULCOD CSS|CSS]]は「この[[基礎 Part 29 コンポーネント|コンポーネント]]のHTMLにだけ」効く
+- 大規模開発では[[ULCOD CSS|CSS]]の影響範囲を制御するため必須
 
 ---
 
-## 2. グローバルCSSを適用する2つの方法
+## 2. [[基礎 Part 33 グローバルCSS|グローバルCSS]]を適用する2つの方法
 
-### 方法① main.ts / main.js で CSS を import する（王道）
+### 方法① [[基礎 Part 2 index.htmlとmain.js|main]].ts / [[基礎 Part 2 index.htmlとmain.js|main.js]] で [[ULCOD CSS|CSS]] を [[基礎 Part 11 ESM　Import＆Export|import]] する（王道）
 
 ```typescript
 // main.ts
@@ -62,11 +63,11 @@ HTML に <style> / <link> として注入
 
 - Vueの機能ではない
 - JavaScriptの標準でもない
-- **Vite（ビルドツール）の機能**
+- **[[Vite HMR|Vite]]（[[コンパイルとビルド|ビルド]]ツール）の機能**
 
 ---
 
-### 方法② scoped を付けない を使う
+### 方法② [[基礎 Part 32 style scoped|scoped]] を付けない を使う
 
 ```plain text
 <!-- App.vue -->
@@ -80,8 +81,8 @@ body {
 
 ### 仕組み
 
-- `scoped` を付けないと、VueはCSSを加工しない
-- 結果として普通のグローバルCSSになる
+- `scoped` を付けないと、Vueは[[ULCOD CSS|CSS]]を加工しない
+- 結果として普通の[[基礎 Part 33 グローバルCSS|グローバルCSS]]になる
 
 ```plain text
 <style scoped>  → h1[data-v-xxx]
@@ -91,7 +92,7 @@ body {
 
 ### 問題点
 
-- CSSの定義場所が分散する
+- [[ULCOD CSS|CSS]]の定義場所が分散する
 - 影響範囲がコードから分かりにくい
 - 大規模開発では保守コストが高い
 
@@ -109,7 +110,7 @@ main.ts
 
 ```
 
-- グローバルに影響するものはここだけ見ればよい
+- [[基礎 Part 33 グローバルCSS|グローバル]]に影響するものはここだけ見ればよい
 - 影響調査が早い
 
 ---
@@ -125,7 +126,7 @@ button {
 
 ```
 
-- scopedなしCSSは全アプリに影響
+- [[基礎 Part 32 style scoped|scoped]]なし[[ULCOD CSS|CSS]]は全アプリに影響
 - 新人・外注が書くと致命的事故になりやすい
 
 一方でルールをこう分けると安全になる。
@@ -160,12 +161,12 @@ src/
 
 ---
 
-## 5. Viteの役割まとめ
+## 5. [[Vite HMR|Vite]]の役割まとめ
 
-### import './global.css' の正体
+### [[基礎 Part 11 ESM　Import＆Export|import]] './global.[[ULCOD CSS|css]]' の正体
 
-- JavaScriptはCSSをimportできない
-- Viteがそれを可能にしている
+- JavaScriptは[[ULCOD CSS|CSS]]を[[基礎 Part 11 ESM　Import＆Export|import]]できない
+- [[Vite HMR|Vite]]がそれを可能にしている
 
 ```plain text
 JavaScriptコード
@@ -184,13 +185,13 @@ Vueはここではほぼ関与しない。
 
 ## 6. 本質的な理解
 
-- VueのCSS設計は「ローカルが基本」
-- グローバルCSSはエントリーポイントで読む
-- それを支えているのがVite
+- Vueの[[ULCOD CSS|CSS]]設計は「ローカルが基本」
+- [[基礎 Part 33 グローバルCSS|グローバルCSS]]はエントリーポイントで読む
+- それを支えているのが[[Vite HMR|Vite]]
 
 この構造を理解していると、
 
-- CSSが壊れたときの原因特定
+- [[ULCOD CSS|CSS]]が壊れたときの原因特定
 - チーム設計
 - 長期運用
 
@@ -200,9 +201,9 @@ Vueはここではほぼ関与しない。
 
 ## 7. 次の理解テーマ（予告）
 
-- CSS変数を使ったデザインシステム
-- scopedでも外側に効かせる :deep
-- Viteがscoped CSSをどう変換しているか
+- [[ULCOD CSS|CSS]]変数を使ったデザインシステム
+- [[基礎 Part 32 style scoped|scoped]]でも外側に効かせる :deep
+- [[Vite HMR|Vite]]が[[基礎 Part 32 style scoped|scoped CSS]]をどう変換しているか
 
 ここまで理解できていれば、実務レベルの基礎は十分に固まっている。
 

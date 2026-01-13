@@ -1,17 +1,18 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-06T17:51:00
+aliases: [computed, Computed, 計算プロパティ]
 ---
-### 1. computedとは何か
+### 1. [[基礎 Part 18 computed|computed]]とは何か
 
-computedはVueの機能で、ある値から計算して得られる「派生データ」を自動的に最新の状態に保つための仕組みである。テンプレートの中に計算式を書く代わりに、あらかじめ計算結果を準備しておく役割を担う。
+[[基礎 Part 18 computed|computed]]はVueの機能で、ある値から計算して得られる「派生データ」を自動的に最新の状態に保つための仕組みである。テンプレートの中に計算式を書く代わりに、あらかじめ計算結果を準備しておく役割を担う。
 
-### 2. なぜcomputedが必要なのか
+### 2. なぜ[[基礎 Part 18 computed|computed]]が必要なのか
 
-テンプレート内で計算を直接書くと読みづらくなり、同じ計算を何度も書くことになる。computedに計算を集約することで、コードの意味が明確になり、保守しやすくなる。
+テンプレート内で計算を直接書くと読みづらくなり、同じ計算を何度も書くことになる。[[基礎 Part 18 computed|computed]]に計算を集約することで、コードの意味が明確になり、保守しやすくなる。
 
 ```javascript
 <p>{{ score > 3 ? 'Good' : 'Bad' }}</p>
@@ -20,9 +21,9 @@ computedはVueの機能で、ある値から計算して得られる「派生デ
 
 このようにテンプレート内で条件式を書くと複雑化しやすい。
 
-### 3. refで同じことをするとどうなるのか
+### 3. [[基礎 Part 4 ref関数|ref]]で同じことをするとどうなるのか
 
-refは値を保持するための仕組みで、式を自動で再評価するものではない。以下のように書いても自動更新は行われない。
+[[基礎 Part 4 ref関数|ref]]は値を保持するための仕組みで、式を自動で再評価するものではない。以下のように書いても自動更新は行われない。
 
 ```javascript
 const score = ref(0)
@@ -32,7 +33,7 @@ const evaluation = ref(score.value > 3 ? 'Good' : 'Bad')
 
 この場合、evaluationは最初の計算結果のままで、scoreが変わっても更新されない。
 
-### 4. computedを使うとどう変わるか
+### 4. [[基礎 Part 18 computed|computed]]を使うとどう変わるか
 
 ```javascript
 const score = ref(0)
@@ -42,7 +43,7 @@ const evaluation = computed(() => {
 
 ```
 
-scoreが変わるたびにevaluationも自動で最新化される。これがcomputedの最も重要な利点である。
+scoreが変わるたびにevaluationも自動で最新化される。これが[[基礎 Part 18 computed|computed]]の最も重要な利点である。
 
 ### 5. 具体的な画面の例
 
@@ -66,13 +67,13 @@ const evaluation = computed(() => {
 
 ```
 
-### 6. computedはキャッシュされる
+### 6. [[基礎 Part 18 computed|computed]]はキャッシュされる
 
-computedの計算は必要になったときだけ実行され、値が変わらなければ再計算されない。これにより無駄な処理が減り、動作が軽くなる。
+[[基礎 Part 18 computed|computed]]の計算は必要になったときだけ実行され、値が変わらなければ再計算されない。これにより無駄な処理が減り、動作が軽くなる。
 
-### 7. computedの別の書き方（getterとsetter）
+### 7. [[基礎 Part 18 computed|computed]]の別の書き方（getterとsetter）
 
-setterを使うとcomputedに値を書き込むこともできる。
+setterを使うと[[基礎 Part 18 computed|computed]]に値を書き込むこともできる。
 
 ```javascript
 const firstName = ref('Taro')
@@ -98,7 +99,7 @@ fullName.value = 'Hanako Suzuki'
 
 このように書くとfirstNameとlastNameも更新される。
 
-### 8. computedが必要となる典型的な例
+### 8. [[基礎 Part 18 computed|computed]]が必要となる典型的な例
 
 - 条件で表示内容を変える
 - 数値の変換（例: メートル→キロメートル）
@@ -117,7 +118,7 @@ const filtered = computed(() => {
 
 ### まとめ
 
-computedは、refなどのリアクティブ値から計算される派生データを自動で最新の状態に保つための仕組みである。refだけでは自動更新されず、テンプレートに直接計算を書くと可読性が下がるため、計算処理はcomputedに集約することでコードを明確に保てる。
+[[基礎 Part 18 computed|computed]]は、[[基礎 Part 4 ref関数|ref]]などの[[基礎 Part 19 リアクティブエフェクト|リアクティブ]]値から計算される派生データを自動で最新の状態に保つための仕組みである。[[基礎 Part 4 ref関数|ref]]だけでは自動更新されず、テンプレートに直接計算を書くと可読性が下がるため、計算処理は[[基礎 Part 18 computed|computed]]に集約することでコードを明確に保てる。
 
 ## 関連
 - [[基礎 Part 19 リアクティブエフェクト]]

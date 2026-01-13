@@ -1,25 +1,26 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - CS
 作成日時: 2025-08-10T00:55:00
+aliases: [RFC, rfc]
 ---
-# 1. RFCとは
+# 1. [[RFC]]とは
 
 - **正式名称**: Request for Comments（コメント募集）
 - **概要**: インターネットや関連技術の仕様・標準を定める文書
 - **発行主体**: 主にIETF（Internet Engineering Task Force）
 - **特徴**
-    - 番号で管理（例: RFC 3986）
+    - 番号で管理（例: [[RFC]] 3986）
     - 誰でも閲覧・参加可能
     - オープンで無料
     - 必要に応じて更新・廃止あり
 - **例**:
-    - RFC 3986: URIの構文
-    - RFC 791: IPv4
-    - RFC 9110: HTTP/1.1
-    - RFC 8446: TLS 1.3
+    - [[RFC]] 3986: [[URI・URL・URN|URI]]の構文
+    - [[RFC]] 791: IPv4
+    - [[RFC]] 9110: HTTP/1.1
+    - [[RFC]] 8446: TLS 1.3
 
 ---
 
@@ -32,26 +33,26 @@ base: "[[ナレッジベース.base]]"
 
 ---
 
-## 3. RFCの対象範囲
+## 3. [[RFC]]の対象範囲
 
 - **ネットワーク基盤**
-    - IPv4（RFC 791）
-    - IPv6（RFC 8200）
-    - TCP（RFC 793）
-    - UDP（RFC 768）
+    - IPv4（[[RFC]] 791）
+    - IPv6（[[RFC]] 8200）
+    - TCP（[[RFC]] 793）
+    - UDP（[[RFC]] 768）
 - **アプリケーション層**
-    - HTTP（RFC 9110）
-    - SMTP（RFC 5321）
-    - DNS（RFC 1034, 1035）
+    - HTTP（[[RFC]] 9110）
+    - SMTP（[[RFC]] 5321）
+    - DNS（[[RFC]] 1034, 1035）
 - **セキュリティ**
-    - TLS 1.3（RFC 8446）
-    - OAuth 2.0（RFC 6749）
-    - JWT（RFC 7519）
+    - TLS 1.3（[[RFC]] 8446）
+    - [[OAuth]] 2.0（[[RFC]] 6749）
+    - JWT（[[RFC]] 7519）
 - **データ形式**
-    - URI（RFC 3986）
-    - JSON（RFC 8259）
-- **ジョークRFC**
-    - RFC 1149（ハトでIPパケットを配送）
+    - [[URI・URL・URN|URI]]（[[RFC]] 3986）
+    - [[設定ファイル言語|JSON]]（[[RFC]] 8259）
+- **ジョーク[[RFC]]**
+    - [[RFC]] 1149（ハトでIPパケットを配送）
 
 ---
 
@@ -62,13 +63,13 @@ base: "[[ナレッジベース.base]]"
 | IETF | 標準化作業・議論を行う国際的技術者コミュニティ |
 | IAB | インターネット全体の技術方針策定 |
 | IRTF | 長期的な研究テーマを扱う |
-| RFC Editor | 文書の編集・番号付与・公開 |
+| [[RFC]] Editor | 文書の編集・番号付与・公開 |
 
 ---
 
 ## 5. ISOとの違い
 
-| 項目 | RFC（IETF） | ISO |
+| 項目 | [[RFC]]（IETF） | ISO |
 | --- | --- | --- |
 | 対象 | インターネット技術 | 全産業分野 |
 | 主体 | IETF（オープンコミュニティ） | 各国代表機関による組織 |
@@ -88,7 +89,7 @@ base: "[[ナレッジベース.base]]"
 - **引用可否**
     - 論文・企業報告書で引用可能
     - 最新版の確認が必要
-    - 公式URLを使用（例: [https://www.rfc-editor.org/rfc/rfc3986）](https://www.rfc-editor.org/rfc/rfc3986%EF%BC%89)
+    - 公式[[URI・URL・URN|URL]]を使用（例: [https://www.rfc-editor.org/rfc/rfc3986）](https://www.rfc-editor.org/rfc/rfc3986%EF%BC%89)
 
 ### 引用例（APA形式）
 
@@ -105,7 +106,7 @@ RFC Editor. https://www.rfc-editor.org/rfc/rfc3986
 
 - **概要**: Web（WWW）の発明者、W3C創設者
 - **功績**
-    - HTML、HTTP、URIの基礎設計
+    - HTML、HTTP、[[URI・URL・URN|URI]]の基礎設計
     - 世界初のWebサーバとブラウザ開発
     - ナイト爵位授与（Sir）
 - **現在**
@@ -116,7 +117,7 @@ RFC Editor. https://www.rfc-editor.org/rfc/rfc3986
 
 ## まとめ
 
-RFCはインターネットの「設計図・憲法」であり、世界的に信頼される一次資料。
+[[RFC]]はインターネットの「設計図・憲法」であり、世界的に信頼される一次資料。
 
 ISOとはプロセスや対象領域が異なるが、どちらも国際標準としての価値を持つ。
 

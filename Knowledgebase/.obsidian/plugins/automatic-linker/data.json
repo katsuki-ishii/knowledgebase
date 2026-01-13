@@ -1,0 +1,23 @@
+{
+  "formatOnSave": true,
+  "showNotice": false,
+  "respectNewFileFolderPath": true,
+  "considerAliases": true,
+  "proximityBasedLinking": true,
+  "ignoreDateFormats": true,
+  "formatGitHubURLs": true,
+  "githubEnterpriseURLs": [],
+  "formatJiraURLs": true,
+  "jiraURLs": [],
+  "formatLinearURLs": false,
+  "debug": false,
+  "ignoreCase": true,
+  "replaceUrlWithTitle": true,
+  "replaceUrlWithTitleIgnoreDomains": [],
+  "excludeDirsFromAutoLinking": [],
+  "preventSelfLinking": false,
+  "removeAliasInDirs": [],
+  "runLinterAfterFormatting": false,
+  "runPrettierAfterFormatting": false,
+  "formatDelayMs": 1
+}

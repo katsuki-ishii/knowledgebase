@@ -1,13 +1,14 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-07T17:05:00
+aliases: [class指定, class, class binding, クラス指定]
 ---
-# Vue における class 指定
+# Vue における [[基礎 Part 23 class指定|class]] 指定
 
-## 1. HTML の class をどう扱うかという前提
+## 1. HTML の [[基礎 Part 23 class指定|class]] をどう扱うかという前提
 
 Vue では UI を状態から自動生成するという思想を採用している。そのため DOM を直接操作せず、データを変えれば UI が変わる仕組みが用意されている。
 
@@ -16,13 +17,13 @@ Vue では UI を状態から自動生成するという思想を採用してい
 
 ```
 
-文字列で class を手動生成すると、条件が入るたびに煩雑になり破綻しやすい。Vue の class バインディングはその問題を回避するためにある。
+文字列で [[基礎 Part 23 class指定|class]] を手動生成すると、条件が入るたびに煩雑になり破綻しやすい。Vue の [[基礎 Part 23 class指定|class]] バインディングはその問題を回避するためにある。
 
-## 2. class バインディングの3つの主要な書き方
+## 2. [[基礎 Part 23 class指定|class]] バインディングの3つの主要な書き方
 
 ### 2.1 文字列指定（最も単純）
 
-固定の class を書く場合はこれで十分。
+固定の [[基礎 Part 23 class指定|class]] を書く場合はこれで十分。
 
 ```javascript
 <div class="p-4 bg-blue-500 text-white">Hello</div>
@@ -46,7 +47,7 @@ Vue では UI を状態から自動生成するという思想を採用してい
 
 ### 2.2 オブジェクト指定（条件付き ON/OFF）
 
-特定の class を状態に応じて付けたり外したりする場合に最適。
+特定の [[基礎 Part 23 class指定|class]] を状態に応じて付けたり外したりする場合に最適。
 
 ```javascript
 <div :class="{ 'text-red-500': isError, 'font-bold': isActive }">
@@ -66,9 +67,9 @@ Vue では UI を状態から自動生成するという思想を採用してい
 
 複数条件が増えても水平に並べるだけで済むため、大規模でも可読性を保てる。
 
-### 2.3 配列指定（class 名そのものを動的に組み立てる）
+### 2.3 配列指定（[[基礎 Part 23 class指定|class]] 名そのものを動的に組み立てる）
 
-変数として class 名を渡したい場合や、複数クラスをまとめたい場合に使う。
+変数として [[基礎 Part 23 class指定|class]] 名を渡したい場合や、複数クラスをまとめたい場合に使う。
 
 ```javascript
 <script setup>
@@ -80,7 +81,7 @@ const className = ref('bg-blue-500')
 
 ```
 
-className の値を書き換えるとそのまま class が切り替わる。
+className の値を書き換えるとそのまま [[基礎 Part 23 class指定|class]] が切り替わる。
 
 ```javascript
 図解: 配列指定のイメージ
@@ -95,7 +96,7 @@ Tailwind の色クラスやサイズクラスを変数化するときに特に�
 
 ```
 
-ただし Tailwind の動的生成はビルドで削除されることがあるため safelist が必要。
+ただし Tailwind の動的生成は[[コンパイルとビルド|ビルド]]で削除されることがあるため safelist が必要。
 
 ```javascript
 safelist: [
@@ -106,9 +107,9 @@ safelist: [
 
 ```
 
-## 3. 条件分岐が複雑化する前に computed に逃す
+## 3. 条件分岐が複雑化する前に [[基礎 Part 18 computed|computed]] に逃す
 
-template に長いバインディングを書くと読みにくくなるため、computed にまとめる戦略が重要。
+template に長いバインディングを書くと読みにくくなるため、[[基礎 Part 18 computed|computed]] にまとめる戦略が重要。
 
 ```javascript
 <script setup>
@@ -135,7 +136,7 @@ const buttonClass = computed(() => [
 
 ## 4. Tailwind と Vue の相性の特徴
 
-Tailwind はクラス名が長く、数が増えやすい。そのため Vue の class バインディングが非常に有効。
+Tailwind はクラス名が長く、数が増えやすい。そのため Vue の [[基礎 Part 23 class指定|class]] バインディングが非常に有効。
 
 ```plain text
 固定クラス → 文字列
@@ -145,9 +146,9 @@ class 名を動的に → 配列 or computed
 
 ```
 
-## 4.5 class 名を動的にするときの配列と computed の使い分け
+## 4.5 [[基礎 Part 23 class指定|class]] 名を動的にするときの配列と [[基礎 Part 18 computed|computed]] の使い分け
 
-class 名そのものを切り替えたい場合、Vue では配列と computed のどちらでも実現できる。ただし用途によって適切な選択がある。
+[[基礎 Part 23 class指定|class]] 名そのものを切り替えたい場合、Vue では配列と [[基礎 Part 18 computed|computed]] のどちらでも実現できる。ただし用途によって適切な選択がある。
 
 ### 配列を選ぶべきケース
 
@@ -167,7 +168,7 @@ class 名そのものを切り替えたい場合、Vue では配列と computed 
 
 color の値が少なく、ロジックも単純な場合に向いている。
 
-### computed を選ぶべきケース
+### [[基礎 Part 18 computed|computed]] を選ぶべきケース
 
 ```plain text
 ・複数条件が絡む
@@ -177,7 +178,7 @@ color の値が少なく、ロジックも単純な場合に向いている。
 
 ```
 
-### 例: 状態によって複数 class が変わる場合
+### 例: 状態によって複数 [[基礎 Part 23 class指定|class]] が変わる場合
 
 ```javascript
 const wrapperClass = computed(() => [
@@ -211,9 +212,9 @@ computed
 
 ---
 
-## 5. クラス爆発を防ぐための UI コンポーネント化
+## 5. クラス爆発を防ぐための UI [[基礎 Part 29 コンポーネント|コンポーネント]]化
 
-Tailwind を大量に並べると可読性が崩壊する。一定以上複雑になったらコンポーネント化するのが正解。
+Tailwind を大量に並べると可読性が崩壊する。一定以上複雑になったら[[基礎 Part 29 コンポーネント|コンポーネント]]化するのが正解。
 
 ### 煩雑な例
 
@@ -228,7 +229,7 @@ Tailwind を大量に並べると可読性が崩壊する。一定以上複雑�
 
 ```
 
-### コンポーネント化
+### [[基礎 Part 29 コンポーネント|コンポーネント]]化
 
 ```plain text
 <BaseButton variant="primary" :disabled="isLoading">
@@ -237,7 +238,7 @@ Tailwind を大量に並べると可読性が崩壊する。一定以上複雑�
 
 ```
 
-内部で Tailwind の class を集約すれば、template を常にシンプルに保てる。
+内部で Tailwind の [[基礎 Part 23 class指定|class]] を集約すれば、template を常にシンプルに保てる。
 
 ```plain text
 図解: コンポーネント化の効果

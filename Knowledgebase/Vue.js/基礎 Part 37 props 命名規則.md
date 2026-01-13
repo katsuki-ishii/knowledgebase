@@ -1,17 +1,18 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-27T17:06:00
+aliases: [props 命名規則, props命名規則, kebab-case, camelCase, props naming]
 ---
-# Vue props 命名規則まとめ
+# Vue [[基礎 Part 37 props 命名規則|props 命名規則]]まとめ
 
-## 1. propsとは
+## 1. [[基礎 Part 35 defineProps()|props]]とは
 
-propsは、親コンポーネントから子コンポーネントへデータを渡すための仕組みである。
+[[基礎 Part 35 defineProps()|props]]は、親[[基礎 Part 29 コンポーネント|コンポーネント]]から子[[基礎 Part 29 コンポーネント|コンポーネント]]へデータを渡すための仕組みである。
 
-子コンポーネントは、親から渡された値を読み取り専用のデータとして受け取る。
+子[[基礎 Part 29 コンポーネント|コンポーネント]]は、親から渡された値を読み取り専用のデータとして受け取る。
 
 ---
 
@@ -19,13 +20,13 @@ propsは、親コンポーネントから子コンポーネントへデータを
 
 | 場所 | 命名規則 | 理由 |
 | --- | --- | --- |
-| 親コンポーネントのtemplate（属性） | kebab-case | HTML属性は大文字小文字を区別しないため |
-| 子コンポーネントのscript | camelCase | JavaScriptの変数として扱うため |
-| 子コンポーネントのtemplate内の式 | camelCase | 中身はJavaScript式のため |
+| 親[[基礎 Part 29 コンポーネント|コンポーネント]]のtemplate（属性） | [[基礎 Part 37 props 命名規則|kebab-case]] | HTML属性は大文字小文字を区別しないため |
+| 子[[基礎 Part 29 コンポーネント|コンポーネント]]のscript | [[基礎 Part 37 props 命名規則|camelCase]] | JavaScriptの変数として扱うため |
+| 子[[基礎 Part 29 コンポーネント|コンポーネント]]のtemplate内の式 | [[基礎 Part 37 props 命名規則|camelCase]] | 中身はJavaScript式のため |
 
 ---
 
-## 3. 図解：propsが渡る流れ
+## 3. 図解：[[基礎 Part 35 defineProps()|props]]が渡る流れ
 
 ```plain text
 親 template（HTML）
@@ -44,7 +45,7 @@ propsは、親コンポーネントから子コンポーネントへデータを
 
 ---
 
-## 4. 親コンポーネント側の具体例
+## 4. 親[[基礎 Part 29 コンポーネント|コンポーネント]]側の具体例
 
 ### 親のtemplate
 
@@ -56,11 +57,11 @@ propsは、親コンポーネントから子コンポーネントへデータを
 
 ```
 
-ここではHTML属性として書くため、kebab-caseを使う。
+ここではHTML属性として書くため、[[基礎 Part 37 props 命名規則|kebab-case]]を使う。
 
 ---
 
-## 5. 子コンポーネント側の具体例
+## 5. 子[[基礎 Part 29 コンポーネント|コンポーネント]]側の具体例
 
 ### script（Composition API）
 
@@ -82,16 +83,16 @@ const props = defineProps<{
 
 ```
 
-子コンポーネントでは、propsはJavaScriptの変数として扱われるため、camelCaseで参照する。
+子[[基礎 Part 29 コンポーネント|コンポーネント]]では、[[基礎 Part 35 defineProps()|props]]はJavaScriptの変数として扱われるため、[[基礎 Part 37 props 命名規則|camelCase]]で参照する。
 
 ---
 
-## 6. なぜ子templateでもcamelCaseなのか
+## 6. なぜ子templateでも[[基礎 Part 37 props 命名規則|camelCase]]なのか
 
-子コンポーネントのtemplateはHTMLに見えるが、以下はすべてJavaScript式である。
+子[[基礎 Part 29 コンポーネント|コンポーネント]]のtemplateはHTMLに見えるが、以下はすべてJavaScript式である。
 
 - {{ }} の中
-- v-if、v-for、v-bind の値
+- [[基礎 Part 24 v-if|v-if]]、[[基礎 Part 26 v-for 配列|v-for]]、[[基礎 Part 12 v-bind|v-bind]] の値
 
 そのため、変数名のルールはJavaScriptに従う。
 
@@ -113,7 +114,7 @@ HTMLでは次はすべて同じ意味になる。
 
 ```
 
-そのため、次のように書くと意図したprops名が失われる。
+そのため、次のように書くと意図した[[基礎 Part 35 defineProps()|props]]名が失われる。
 
 ```html
 <UserCard userName="tanaka" />
@@ -124,21 +125,21 @@ HTMLでは次はすべて同じ意味になる。
 
 ---
 
-## 8. kebab-caseを使う理由まとめ
+## 8. [[基礎 Part 37 props 命名規則|kebab-case]]を使う理由まとめ
 
 - HTML仕様に安全
 - すべて小文字で一貫性がある
-- Vueが確実にcamelCaseへ変換できる
+- Vueが確実に[[基礎 Part 37 props 命名規則|camelCase]]へ変換できる
 
 ---
 
 ## 9. 覚え方（実務向け）
 
 - ハイフンが出てきたらHTMLの世界
-- 変数として触るならcamelCase
-- propsは属性として渡し、変数として使う
+- 変数として触るなら[[基礎 Part 37 props 命名規則|camelCase]]
+- [[基礎 Part 35 defineProps()|props]]は属性として渡し、変数として使う
 
-この整理を意識すると、Vueのpropsで迷わなくなる。
+この整理を意識すると、Vueの[[基礎 Part 35 defineProps()|props]]で迷わなくなる。
 
 ## 関連
 - [[基礎 Part 35 defineProps()]]

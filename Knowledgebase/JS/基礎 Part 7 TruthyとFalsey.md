@@ -4,19 +4,20 @@ base: "[[ナレッジベース.base]]"
 カテゴリー:
   - JavaScript
 作成日時: 2025-06-22T20:10:00
+aliases: [TruthyとFalsey, Truthy, Falsey, truthy, falsey, falsy, Falsy]
 ---
 ## 概要
 
-JavaScriptでは、条件式で使う値が「trueとみなされる値（truthy）」と「falseとみなされる値（falsey）」に分かれる。
+JavaScriptでは、条件式で使う値が「trueとみなされる値（[[基礎 Part 7 TruthyとFalsey|truthy]]）」と「falseとみなされる値（[[基礎 Part 7 TruthyとFalsey|falsey]]）」に分かれる。
 
-- truthy: 条件式でtrueと判定される値
-- falsey (falsy): 条件式でfalseと判定される値
+- [[基礎 Part 7 TruthyとFalsey|truthy]]: 条件式でtrueと判定される値
+- [[基礎 Part 7 TruthyとFalsey|falsey]] ([[基礎 Part 7 TruthyとFalsey|falsy]]): 条件式でfalseと判定される値
 
 ---
 
-## falseyになる値（7種類）
+## [[基礎 Part 7 TruthyとFalsey|falsey]]になる値（7種類）
 
-falseyになるのは次の7つだけ。
+[[基礎 Part 7 TruthyとFalsey|falsey]]になるのは次の7つだけ。
 
 | 値 | 実体例 | コメント |
 | --- | --- | --- |
@@ -42,9 +43,9 @@ if (NaN)        // falsey
 
 ---
 
-## truthyな値（それ以外すべて）
+## [[基礎 Part 7 TruthyとFalsey|truthy]]な値（それ以外すべて）
 
-上記以外の値はすべてtruthy。
+上記以外の値はすべて[[基礎 Part 7 TruthyとFalsey|truthy]]。
 
 | 値のタイプ | 実体例 |
 | --- | --- |
@@ -71,11 +72,11 @@ if ("0")         // truthy
 
 ## 注意が必要な具体例
 
-- `[]` （空配列）はtruthy
-- `{}` （空オブジェクト）はtruthy
-- `"0"`（0の文字列）はtruthy
-- `NaN`はfalsey、`"NaN"`（文字列）はtruthy
-- `false`（boolean）はfalsey、`"false"`（文字列）はtruthy
+- `[]` （空配列）は[[基礎 Part 7 TruthyとFalsey|truthy]]
+- `{}` （空オブジェクト）は[[基礎 Part 7 TruthyとFalsey|truthy]]
+- `"0"`（0の文字列）は[[基礎 Part 7 TruthyとFalsey|truthy]]
+- `NaN`は[[基礎 Part 7 TruthyとFalsey|falsey]]、`"NaN"`（文字列）は[[基礎 Part 7 TruthyとFalsey|truthy]]
+- `false`（boolean）は[[基礎 Part 7 TruthyとFalsey|falsey]]、`"false"`（文字列）は[[基礎 Part 7 TruthyとFalsey|truthy]]
 
 ---
 
@@ -113,7 +114,7 @@ if ("0") {
 
 ## まとめ
 
-- falseyになるのは上記7種類だけ
-- 配列やオブジェクトは中身がなくてもtruthy
-- 文字列"0"や"false"もtruthy
+- [[基礎 Part 7 TruthyとFalsey|falsey]]になるのは上記7種類だけ
+- 配列やオブジェクトは中身がなくても[[基礎 Part 7 TruthyとFalsey|truthy]]
+- 文字列"0"や"false"も[[基礎 Part 7 TruthyとFalsey|truthy]]
 - 型・値の違いに注意

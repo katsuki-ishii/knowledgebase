@@ -1,15 +1,16 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-07T16:42:00
+aliases: [watch, Watch]
 ---
-# Vue Composition API における watch のまとめ
+# Vue Composition API における [[基礎 Part 22 watch|watch]] のまとめ
 
-## 1. watch の本質
+## 1. [[基礎 Part 22 watch|watch]] の本質
 
-watch はリアクティブな値が変化した際に副作用処理を実行する仕組み。副作用とは API の呼び出し、バリデーション、localStorage との同期、ログ出力などを指す。値を返すのではなく、処理を実行する点が computed との決定的な違い。
+[[基礎 Part 22 watch|watch]] は[[基礎 Part 19 リアクティブエフェクト|リアクティブ]]な値が変化した際に[[基礎 Part 20 副作用と純粋関数|副作用]]処理を実行する仕組み。[[基礎 Part 20 副作用と純粋関数|副作用]]とは API の呼び出し、[[DTOバリデーション|バリデーション]]、localStorage との同期、ログ出力などを指す。値を返すのではなく、処理を実行する点が [[基礎 Part 18 computed|computed]] との決定的な違い。
 
 ## 2. 基本構文
 
@@ -18,7 +19,7 @@ watch(source, callback, options?)
 
 ```
 
-- source: ref、reactive の getter 関数、複数値の配列など
+- source: [[基礎 Part 4 ref関数|ref]]、[[基礎 Part 5 reactive関数|reactive]] の getter 関数、複数値の配列など
 - callback: (newValue, oldValue) => {...}
 - options: immediate、deep、flush など
 
@@ -37,7 +38,7 @@ watch(source, callback, options?)
 
 ## 4. 具体例
 
-### ref をそのまま監視する
+### [[基礎 Part 4 ref関数|ref]] をそのまま監視する
 
 ```javascript
 const count = ref(0)
@@ -48,7 +49,7 @@ watch(count, (newVal, oldVal) => {
 
 ```
 
-### reactive のプロパティを監視（getter を使う）
+### [[基礎 Part 5 reactive関数|reactive]] のプロパティを監視（getter を使う）
 
 ```javascript
 const state = reactive({ name: "katsuki", age: 25 })
@@ -76,7 +77,7 @@ watch([first, last], ([newF, newL], [oldF, oldL]) => {
 
 ## 5. getter 関数とは
 
-getter 関数は「値を返すだけの関数」。watch が何を監視するべきかを正確に指定するために使用する。
+getter 関数は「値を返すだけの関数」。[[基礎 Part 22 watch|watch]] が何を監視するべきかを正確に指定するために使用する。
 
 具体例:
 
@@ -96,7 +97,7 @@ getter 関数は「値を返すだけの関数」。watch が何を監視する�
 
 ```
 
-## 6. watch の代表的な使用場面
+## 6. [[基礎 Part 22 watch|watch]] の代表的な使用場面
 
 ### 1. 入力値に応じて外部処理を行う
 
@@ -107,7 +108,7 @@ watch(keyword, (v) => {
 
 ```
 
-### 2. フォームのバリデーション
+### 2. フォームの[[DTOバリデーション|バリデーション]]
 
 ```javascript
 watch(email, (value) => {
@@ -125,7 +126,7 @@ watch(currentPage, (v) => {
 
 ```
 
-### 4. ID の変更に応じてデータ再取得
+### 4. [[HTMLのclass, id, style|ID]] の変更に応じてデータ再取得
 
 ```javascript
 watch(selectedId, async (id) => {
@@ -134,9 +135,9 @@ watch(selectedId, async (id) => {
 
 ```
 
-## 7. watchEffect との違い（図解）
+## 7. [[基礎 Part 21 watchEffect|watchEffect]] との違い（図解）
 
-### watch
+### [[基礎 Part 22 watch|watch]]
 
 ```plain text
 あなたが指定した値のみを監視
@@ -145,7 +146,7 @@ watch(selectedId, async (id) => {
 
 ```
 
-### watchEffect
+### [[基礎 Part 21 watchEffect|watchEffect]]
 
 ```plain text
 watchEffect 内でアクセスした全ての reactive を監視
@@ -158,7 +159,7 @@ watchEffect()
 
 ```
 
-## 8. watch を使うべきでない場面
+## 8. [[基礎 Part 22 watch|watch]] を使うべきでない場面
 
 ### 単なる値の計算
 
@@ -169,21 +170,21 @@ const fullName = computed(() => first.value + last.value)
 
 ### UI 表示の切り替えだけの場合
 
-watch を使う必要はない。テンプレート側の条件分岐や computed で対応可能。
+[[基礎 Part 22 watch|watch]] を使う必要はない。テンプレート側の条件分岐や [[基礎 Part 18 computed|computed]] で対応可能。
 
 ## 9. 実務でのベストプラクティス
 
-1. ref はそのまま watch する
-2. reactive の部分監視は getter 関数で統一する
+1. [[基礎 Part 4 ref関数|ref]] はそのまま [[基礎 Part 22 watch|watch]] する
+2. [[基礎 Part 5 reactive関数|reactive]] の部分監視は getter 関数で統一する
 3. 複数監視は配列で行う
 4. immediate を使う場合は理由をコメントで明示する
-5. watchEffect は用途を限定する
+5. [[基礎 Part 21 watchEffect|watchEffect]] は用途を限定する
 
-## 10. watch の options の代表例
+## 10. [[基礎 Part 22 watch|watch]] の options の代表例
 
 ### immediate
 
-watch 登録時に初回の callback を即時実行する。
+[[基礎 Part 22 watch|watch]] 登録時に初回の callback を即時実行する。
 
 例:
 
@@ -205,7 +206,7 @@ watch(keyword, handler, {
 
 オブジェクトや配列のネストした変更も検知する。
 
-Composition API で reactive をそのまま監視した場合は内部的に deep 相当になるが、getter を使う監視では deep は不要。
+Composition API で [[基礎 Part 5 reactive関数|reactive]] をそのまま監視した場合は内部的に deep 相当になるが、getter を使う監視では deep は不要。
 
 例:
 
@@ -224,9 +225,9 @@ watch(state, handler, {
 
 ### flush
 
-watch の callback を実行するタイミングを制御する。
+[[基礎 Part 22 watch|watch]] の callback を実行するタイミングを制御する。
 
-- `flush: 'pre'` コンポーネント更新前に実行
+- `flush: 'pre'` [[基礎 Part 29 コンポーネント|コンポーネント]]更新前に実行
 - `flush: 'post'` DOM 更新後に実行（デフォルト）
 - `flush: 'sync'` 同期的に即実行（特殊用途）
 
@@ -271,7 +272,7 @@ watch(count, handler, {
 
 ```
 
-以上を押さえておくと、Composition API における watch の動作と使いどころが明確に理解できる。
+以上を押さえておくと、Composition API における [[基礎 Part 22 watch|watch]] の動作と使いどころが明確に理解できる。
 
 ## 関連
 - [[基礎 Part 21 watchEffect]]

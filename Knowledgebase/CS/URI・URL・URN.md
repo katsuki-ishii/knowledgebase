@@ -1,15 +1,16 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - CS
 作成日時: 2025-08-11T23:44:00
+aliases: [URI・URL・URN, URI, URL, URN, uri, url, urn]
 ---
-## 1. URIとは
+## 1. [[URI・URL・URN|URI]]とは
 
-- **動きや役割**：Web上のあらゆるリソース（Webページ、画像、動画、APIなど）を統一的な形式で一意に識別するためのID。場所を使う場合もあれば、名前だけで特定する場合もある。
-- **用語名**：URI（Uniform Resource Identifier）
-- **背景**：RFC 3986で仕様が定義されており、URLやURNを含む上位概念。
+- **動きや役割**：Web上のあらゆるリソース（Webページ、画像、動画、APIなど）を統一的な形式で一意に識別するための[[HTMLのclass, id, style|ID]]。場所を使う場合もあれば、名前だけで特定する場合もある。
+- **用語名**：[[URI・URL・URN|URI]]（Uniform Resource Identifier）
+- **背景**：[[RFC]] 3986で仕様が定義されており、[[URI・URL・URN|URL]]や[[URI・URL・URN|URN]]を含む上位概念。
 - **主な構成要素（役割／ポイント／例）**：
     1. **scheme（スキーム）**
         - *役割*：通信方法・解釈ルールの指定（例：`http`, `https`, `ftp`, `mailto`, `data`）
@@ -32,7 +33,7 @@ base: "[[ナレッジベース.base]]"
         - *役割*：追加パラメータ（検索条件やフィルタ）
         - *形式*：`key=value` を `&`（または `;`）で連結。順序に意味がある場合あり
         - *エンコード*：空白は `%20`（`application/x-www-form-urlencoded` では `+`）
-        - *注意*：**機密情報は置かない**（URLはログや履歴に残る）
+        - *注意*：**機密情報は置かない**（[[URI・URL・URN|URL]]はログや履歴に残る）
         - *例*：`?q=URI&lang=ja`
     5. **fragment（フラグメント）**（任意）
         - *役割*：**取得後**のリソース内の位置指定（サーバーには送信されない）
@@ -40,7 +41,7 @@ base: "[[ナレッジベース.base]]"
 
 ---
 
-## 2. URL（Uniform Resource Locator）
+## 2. [[URI・URL・URN|URL]]（Uniform Resource Locator）
 
 - **動きや役割**：リソースの「場所」と「アクセス方法」を明示する。スキーム（通信方法）・ホスト名（サーバーの住所）・パス（ファイルやページの位置）を指定する。
 - **何を受け取り → 何をして → どこに渡すか**：
@@ -53,7 +54,7 @@ base: "[[ナレッジベース.base]]"
 
 ---
 
-## 3. URN（Uniform Resource Name）
+## 3. [[URI・URL・URN|URN]]（Uniform Resource Name）
 
 - **動きや役割**：場所情報を含まず、名前空間と識別子だけでリソースを特定する。物理的な場所やアクセス方法は別の解決プロセスで決定される。
 - **何を受け取り → 何をして → どこに渡すか**：
@@ -68,16 +69,16 @@ base: "[[ナレッジベース.base]]"
 
 ## 4. AWSにおける使われ方
 
-- **URL型**（場所型URI）：直接アクセス可能なエンドポイント
-    - S3オブジェクトURL：`https://my-bucket.s3.amazonaws.com/image.png`
+- **[[URI・URL・URN|URL]]型**（場所型[[URI・URL・URN|URI]]）：直接アクセス可能なエンドポイント
+    - S3オブジェクト[[URI・URL・URN|URL]]：`https://my-bucket.s3.amazonaws.com/image.png`
     - API Gatewayエンドポイント：`https://abc123.execute-api.ap-northeast-1.amazonaws.com/prod`
-- **URN型**（名前型URI）：管理や権限設定に利用される一意な名前
+- **[[URI・URL・URN|URN]]型**（名前型[[URI・URL・URN|URI]]）：管理や権限設定に利用される一意な名前
     - ARN（Amazon Resource Name）：`arn:aws:s3:::my-bucket/my-object`
     - Lambda関数ARN：`arn:aws:lambda:ap-northeast-1:123456789012:function:MyFunction`
 
 ---
 
-## 5. URLの記号の役割
+## 5. [[URI・URL・URN|URL]]の記号の役割
 
 | 記号 | 動きや役割 | 詳細例 |
 | --- | --- | --- |
@@ -90,22 +91,22 @@ base: "[[ナレッジベース.base]]"
 ## 6. フラグメント識別子（`#`）
 
 - **動きや役割**：取得済みリソース内の特定箇所を指す。スクロールやタブ表示切り替えなどに利用され、サーバーには送信されない。
-- **例**：`https://example.com/manual.html#section3`（id="section3"へジャンプ）
+- **例**：`https://example.com/manual.html#section3`（[[HTMLのclass, id, style|id]]="section3"へジャンプ）
 - **活用例**：HTMLアンカーリンク、PDFページ指定、SPA（シングルページアプリ）のルーティング
 
 ---
 
-## 7. URL内のユーザー名・パスワード
+## 7. [[URI・URL・URN|URL]]内のユーザー名・パスワード
 
 - **形式**：`https://user:pass@example.com/`
-- **歴史的背景**：RFC 1738など古い仕様では許容され、昔はFTPやHTTP Basic認証の簡易入力に使われていた。しかしセキュリティリスクが高いため、現在はブラウザや仕様面で非推奨・禁止に近い扱い。
+- **歴史的背景**：[[RFC]] 1738など古い仕様では許容され、昔はFTPやHTTP Basic認証の簡易入力に使われていた。しかしセキュリティリスクが高いため、現在はブラウザや仕様面で非推奨・禁止に近い扱い。
 - **危険性**：
     - 平文でログや履歴に残る
     - HTTPSで暗号化しなければ盗聴可能
-    - モダンブラウザでは警告またはブロック対象
+    - モダンブラウザでは警告または[[基礎 Part 9ブロックとブロックスコープ|ブロック]]対象
 - **代替案**：
     - HTTPヘッダーの`Authorization`（BasicやBearerトークン）
-    - OAuthやAPIキーを利用
+    - [[OAuth]]やAPIキーを利用
 
 ## 関連
 - [[REST 概要]]

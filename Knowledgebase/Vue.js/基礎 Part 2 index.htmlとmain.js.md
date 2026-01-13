@@ -1,13 +1,14 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-10-13T14:21:00
+aliases: [index.htmlとmain.js, index.html, main.js, index, main]
 ---
 # 1. `index.html` の役割
 
-Vue + Vite プロジェクトでは、`index.html` はアプリの**エントリーポイント（入口）**である。
+Vue + [[Vite HMR|Vite]] プロジェクトでは、`index.html` はアプリの**エントリーポイント（入口）**である。
 
 ```html
 <!DOCTYPE html>
@@ -55,14 +56,14 @@ app.mount('#app')
 | 行 | 内容 | 補足 |
 | --- | --- | --- |
 | `import { createApp } from 'vue'` | Vueライブラリのアプリ生成関数を読み込む | Vue 3 の Composition API 用構文 |
-| `import App from './App.vue'` | アプリ全体のルートコンポーネント | UI とロジックの中心 |
+| `import App from './App.vue'` | アプリ全体の[[基礎 Part 29 コンポーネント|ルートコンポーネント]] | UI とロジックの中心 |
 | `import router from './router'` | ページ遷移（Vue Router）を読み込む | SPA のルーティングを管理 |
 | `app.use(router)` | ルーターをアプリに登録する | プラグインとして組み込む |
-| `app.mount('#app')` | index.html の `#app` に描画を開始する | ここでUIが表示される |
+| `app.mount('#app')` | [[基礎 Part 2 index.htmlとmain.js|index.html]] の `#app` に描画を開始する | ここでUIが表示される |
 
-## 3. Vite がしている裏側の仕事
+## 3. [[Vite HMR|Vite]] がしている裏側の仕事
 
-Vite は `index.html` を起点に依存関係を解析し、ブラウザで動くように最適化する。
+[[Vite HMR|Vite]] は `index.html` を起点に依存関係を解析し、ブラウザで動くように最適化する。
 
 ```plain text
 index.html
@@ -77,22 +78,22 @@ index.html
 
 ```
 
-Vite はこれをリアルタイムで行い、ホットリロード（変更即時反映）も提供する。
+[[Vite HMR|Vite]] はこれをリアルタイムで行い、ホットリロード（変更即時反映）も提供する。
 
 ## 4. ブラウザでの実行の流れ
 
 1. **HTML解析**：`<div id="app">` を見つける（まだ空）
 2. `**main.js**`** 読み込み**：`createApp(App)` が呼ばれる
 3. **Vueアプリ生成**：`App.vue` が仮想DOMとして構築される
-4. **マウント処理**：`#app` に Vue コンポーネントが描画される
+4. **マウント処理**：`#app` に Vue [[基礎 Part 29 コンポーネント|コンポーネント]]が描画される
 5. **UI表示完了**
 
 ## 5. `/src/main.js` の意味
 
-Vite 環境では `/` がプロジェクトルートを表す。
+[[Vite HMR|Vite]] 環境では `/` がプロジェクトルートを表す。
 
 - `/src/main.js` = プロジェクト直下の `src/main.js`
-- 本番ビルド時には、`/assets/main-xxxx.js` のような最適化済みファイルに変換される
+- 本番[[コンパイルとビルド|ビルド]]時には、`/assets/main-xxxx.js` のような最適化済みファイルに変換される
 
 ## 6. まとめ
 
@@ -100,7 +101,7 @@ Vite 環境では `/` がプロジェクトルートを表す。
 | --- | --- |
 | `<script type="module">` | ESモジュールとして読み込み、`import/export`が使用可能になる |
 | `src="/src/main.js"` | Vueアプリのエントリーポイント |
-| Vite | モジュール依存関係を解決し、ブラウザで動作可能な形に変換する |
+| [[Vite HMR|Vite]] | モジュール依存関係を解決し、ブラウザで動作可能な形に変換する |
 | `createApp(App).mount('#app')` | Vueアプリを実際のDOMに描画する |
 
 ---

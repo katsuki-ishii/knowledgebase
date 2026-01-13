@@ -1,17 +1,18 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-07T18:59:00
+aliases: [v-for 配列, v-for, vfor, v for, key]
 ---
-# v-for と key の基礎
+# [[基礎 Part 26 v-for 配列|v-for]] と [[基礎 Part 26 v-for 配列|key]] の基礎
 
 ---
 
-## 1. v-for の基本
+## 1. [[基礎 Part 26 v-for 配列|v-for]] の基本
 
-v-for は配列やオブジェクトを繰り返し描画するための構文である。
+[[基礎 Part 26 v-for 配列|v-for]] は配列やオブジェクトを繰り返し描画するための構文である。
 
 ```plain text
 <li v-for="item in items">{{ item }}</li>
@@ -33,14 +34,14 @@ const items = ["apple", "banana", "orange"]
 
 ---
 
-## 2. index の取得
+## 2. [[基礎 Part 2 index.htmlとmain.js|index]] の取得
 
 ```plain text
 <li v-for="(item, index) in items">{{ index }}: {{ item }}</li>
 
 ```
 
-index は 0 始まりの番号。
+[[基礎 Part 2 index.htmlとmain.js|index]] は 0 始まりの番号。
 
 ---
 
@@ -66,9 +67,9 @@ age: 25
 
 ---
 
-## 4. key が必要な理由
+## 4. [[基礎 Part 26 v-for 配列|key]] が必要な理由
 
-Vue は描画済み DOM を再利用して高速化する。その際、要素の識別に key を使う。key がないと Vue がどの DOM が何に対応するか判断できず、意図しない再利用が発生する。
+Vue は描画済み DOM を再利用して高速化する。その際、要素の識別に [[基礎 Part 26 v-for 配列|key]] を使う。[[基礎 Part 26 v-for 配列|key]] がないと Vue がどの DOM が何に対応するか判断できず、意図しない再利用が発生する。
 
 ### 図解
 
@@ -90,7 +91,7 @@ items = [3, 1, 2]
 
 ```
 
-key がない場合の Vue の推測動作:
+[[基礎 Part 26 v-for 配列|key]] がない場合の Vue の推測動作:
 
 ```plain text
 DOM1 に 3 を上書き
@@ -103,14 +104,14 @@ DOM3 に 2 を上書き
 
 ---
 
-## 5. key を付けた場合
+## 5. [[基礎 Part 26 v-for 配列|key]] を付けた場合
 
 ```plain text
 <div v-for="item in items" :key="item">{{ item }}</div>
 
 ```
 
-Vue は key を名札として扱い、要素を正しく追跡する。
+Vue は [[基礎 Part 26 v-for 配列|key]] を名札として扱い、要素を正しく追跡する。
 
 ### 図解
 
@@ -136,7 +137,7 @@ Vue 独自仕様であり、1〜5 を自動生成する。
 
 ---
 
-## 7. v-if と併用しない
+## 7. [[基礎 Part 24 v-if|v-if]] と併用しない
 
 NG:
 
@@ -156,7 +157,7 @@ OK:
 
 ## 8. Memento での利用例
 
-Memento のライフグリッド描画では、寿命×52週の大量セルを v-for で生成する。この場合 key は必須となる。
+Memento のライフグリッド描画では、寿命×52週の大量セルを [[基礎 Part 26 v-for 配列|v-for]] で生成する。この場合 [[基礎 Part 26 v-for 配列|key]] は必須となる。
 
 ```plain text
 <div v-for="week in weeks" :key="week.id" class="cell">
@@ -165,13 +166,13 @@ Memento のライフグリッド描画では、寿命×52週の大量セルを v
 
 ```
 
-week.id は誕生日からの経過週を数値化したものであり、一意性が保証されるため key に最適である。
+week.[[HTMLのclass, id, style|id]] は誕生日からの経過週を数値化したものであり、一意性が保証されるため [[基礎 Part 26 v-for 配列|key]] に最適である。
 
 ---
 
 ## 9. 最低限覚えておくこと
 
-v-for には必ず key を付ける。
+[[基礎 Part 26 v-for 配列|v-for]] には必ず [[基礎 Part 26 v-for 配列|key]] を付ける。
 
 ```plain text
 <div v-for="item in items" :key="item.id">{{ item }}</div>

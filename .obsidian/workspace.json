@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "c4d05deedcb90ba5",
+    "id": "e4e0acb701320bb8",
     "type": "split",
     "children": [
       {
-        "id": "65d202c0a419f9b7",
+        "id": "8dbdc7fb043933f4",
         "type": "tabs",
         "children": [
           {
-            "id": "ede88bad39bd40d3",
+            "id": "13e99e0b276219f7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AWS/IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた  DevelopersIO.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた  DevelopersIO"
+              "title": "New tab"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "b89421d34ea86154",
+    "id": "bf3fed1608d4ce5b",
     "type": "split",
     "children": [
       {
-        "id": "d1d1fb389415ce36",
+        "id": "c0357b79b3a63e8b",
         "type": "tabs",
         "children": [
           {
-            "id": "664c676f1b252729",
+            "id": "786168b0e1a311b9",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +44,7 @@
             }
           },
           {
-            "id": "be5ec82675f11b86",
+            "id": "3bb4a783e42946e8",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,41 +57,40 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "検索"
+              "title": "Search"
             }
           },
           {
-            "id": "bd0cd680f684443b",
+            "id": "2d8fc2b2be416a35",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "ブックマーク"
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 300
   },
   "right": {
-    "id": "ab647e84f744a8cd",
+    "id": "c19f75985ed0efa7",
     "type": "split",
     "children": [
       {
-        "id": "73ecf8bc2fc666c6",
+        "id": "eb994ae0263df6dc",
         "type": "tabs",
         "children": [
           {
-            "id": "6585bc0143a63e7d",
+            "id": "f2a8c6d8d80c32d1",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AWS/IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた  DevelopersIO.md",
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -104,11 +99,11 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた  DevelopersIO"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "32dafca625eea5f9",
+            "id": "00f4bda4cc5a7a66",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -117,11 +112,11 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "アウトゴーイングリンク"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "3d495d582402b7da",
+            "id": "548dd053d5e2d3c1",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -132,11 +127,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "タグ"
+              "title": "Tags"
             }
           },
           {
-            "id": "592d84cba4130616",
+            "id": "bb989c957f18aa8f",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -146,11 +141,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-archive",
-              "title": "すべてのプロパティ"
+              "title": "All properties"
             }
           },
           {
-            "id": "fecb42cfbd6271bb",
+            "id": "9773196be190d727",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -160,14 +155,15 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "アウトライン"
+              "title": "Outline"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,58 +173,9 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-importer:Open Importer": false
+      "bases:Create new base": false
     }
   },
-  "active": "ede88bad39bd40d3",
-  "lastOpenFiles": [
-    "AWS/Cognito Authorizer.md",
-    "AWS/“UnauthorizedOperation - Encoded authorization failure message” が出たときのコマンド.md",
-    "CS/コンパイルとビルド.md",
-    "Vue.js/基礎 Part 1 ディレクトリ構造.md",
-    "CS/ナレッジベース.base",
-    "Vue.js/基礎 Part 19 リアクティブエフェクト.md",
-    "Vue.js/基礎 Part 13 v-on  ハンドラー引数.md",
-    "Vue.js/基礎 Part 37 props 命名規則.md",
-    "Vue.js/基礎 Part 36 props バリデーション.md",
-    "Vue.js/基礎 Part 35 defineProps().md",
-    "Vue.js/基礎 Part 34 コンパイル時マクロ.md",
-    "Vue.js/基礎 Part 33 グローバルCSS.md",
-    "Vue.js/基礎 Part 32 style scoped.md",
-    "Vue.js/基礎 Part 31  属性フォークスルー.md",
-    "Vue.js/基礎 Part 30 コンポーネント登録.md",
-    "Vue.js/基礎 Part 29 コンポーネント.md",
-    "Vue.js/基礎 Part 28 v-for 数字.md",
-    "Vue.js/基礎 Part 27 v-for オブジェクト.md",
-    "Vue.js/基礎 Part 26 v-for 配列.md",
-    "Vue.js/基礎 Part 25 v-show.md",
-    "Vue.js/基礎 Part 24 v-if.md",
-    "Vue.js/基礎 Part 23 class指定.md",
-    "Vue.js/基礎 Part 22 watch.md",
-    "Vue.js/基礎 Part 21 watchEffect.md",
-    "Vue.js/基礎 Part 20 副作用と純粋関数.md",
-    "Vue.js/基礎 Part 18 computed.md",
-    "Vue.js/基礎 Part 17 v-model.md",
-    "news",
-    "00.Clippings",
-    "dev tools",
-    "Vue.js",
-    "JS",
-    "CS",
-    "AWS",
-    "無題のファイル.canvas",
-    "Clippings",
-    "knowledgebase/ナレッジベース.base",
-    "image.png",
-    "image 19.png",
-    "image 34.png",
-    "image 27.png",
-    "image 8.png",
-    "image 17.png",
-    "image 37.png",
-    "image 36.png",
-    "image 35.png",
-    "image 33.png"
-  ]
+  "active": "13e99e0b276219f7",
+  "lastOpenFiles": []
 }

@@ -4,18 +4,19 @@ base: "[[ナレッジベース.base]]"
 カテゴリー:
   - JavaScript
 作成日時: 2025-10-13T15:22:00
+aliases: [ESM Import＆Export, ESM, Import, Export, import, export, ES Modules, ESModule]
 ---
-# ES Modules（ESM）の仕組みまとめ
+# [[基礎 Part 11 ESM　Import＆Export|ES Modules]]（[[基礎 Part 11 ESM　Import＆Export|ESM]]）の仕組みまとめ
 
 ## 概要
 
-ES Modules（略して ESM）は、JavaScript の公式モジュールシステムです。`import` と `export` を使って、コードをファイル単位で分割・共有できるようにする仕組みです。
+[[基礎 Part 11 ESM　Import＆Export|ES Modules]]（略して [[基礎 Part 11 ESM　Import＆Export|ESM]]）は、JavaScript の公式モジュールシステムです。`import` と `export` を使って、コードをファイル単位で[[基礎 Part 13 分割代入|分割]]・共有できるようにする仕組みです。
 
 ---
 
 ## 基本構文
 
-### 名前付きエクスポート（Named Export）
+### 名前付きエクスポート（Named [[基礎 Part 11 ESM　Import＆Export|Export]]）
 
 ```javascript
 // math.js
@@ -35,11 +36,11 @@ console.log(add(pi, 2))
 
 - 複数エクスポート可能。
 - `{}` の中で名前を指定して取り出す。
-- import側の名前は export側と一致する必要がある。
+- [[基礎 Part 11 ESM　Import＆Export|import]]側の名前は [[基礎 Part 11 ESM　Import＆Export|export]]側と一致する必要がある。
 
 ---
 
-### デフォルトエクスポート（Default Export）
+### デフォルトエクスポート（[[基礎 Part 36 props バリデーション|Default]] [[基礎 Part 11 ESM　Import＆Export|Export]]）
 
 ```javascript
 // greet.js
@@ -57,7 +58,7 @@ greet('Memento')
 ```
 
 - ファイルごとに1つだけ。
-- import時に好きな名前をつけられる。
+- [[基礎 Part 11 ESM　Import＆Export|import]]時に好きな名前をつけられる。
 - ファイルの主役を示すのに使う。
 
 ---
@@ -82,7 +83,7 @@ log(version)
 
 ---
 
-## exportできるもの
+## [[基礎 Part 11 ESM　Import＆Export|export]]できるもの
 
 - 関数 (`function`)
 - 変数 (`const`, `let`)
@@ -98,20 +99,20 @@ export default { appName: 'Memento' }
 
 ---
 
-## importのバリエーション
+## [[基礎 Part 11 ESM　Import＆Export|import]]のバリエーション
 
 | 構文 | 意味 |
 | --- | --- |
-| `import { a, b } from './x.js'` | 名前付きexportを個別に読み込み |
+| `import { a, b } from './x.js'` | 名前付き[[基礎 Part 11 ESM　Import＆Export|export]]を個別に読み込み |
 | `import * as mod from './x.js'` | すべてをオブジェクトとして読み込み（`mod.a`, `mod.b`） |
-| `import x from './x.js'` | default exportを読み込み |
-| `import x, { a, b } from './x.js'` | defaultと名前付きexportを同時に読み込み |
+| `import x from './x.js'` | [[基礎 Part 36 props バリデーション|default]] [[基礎 Part 11 ESM　Import＆Export|export]]を読み込み |
+| `import x, { a, b } from './x.js'` | [[基礎 Part 36 props バリデーション|default]]と名前付き[[基礎 Part 11 ESM　Import＆Export|export]]を同時に読み込み |
 
 ---
 
 ## 参照の仕組み（ライブバインディング）
 
-ESMのimportは「コピー」ではなく「参照（ポインタ）」です。つまり、export元の値が変わると、import側も更新されます。
+[[基礎 Part 11 ESM　Import＆Export|ESM]]の[[基礎 Part 11 ESM　Import＆Export|import]]は「コピー」ではなく「参照（ポインタ）」です。つまり、[[基礎 Part 11 ESM　Import＆Export|export]]元の値が変わると、[[基礎 Part 11 ESM　Import＆Export|import]]側も更新されます。
 
 ```javascript
 // counter.js
@@ -130,24 +131,24 @@ console.log(count) // => 1 （同期している）
 
 ---
 
-## default export がある理由
+## [[基礎 Part 36 props バリデーション|default]] [[基礎 Part 11 ESM　Import＆Export|export]] がある理由
 
-| 観点 | default export | named export |
+| 観点 | [[基礎 Part 36 props バリデーション|default]] [[基礎 Part 11 ESM　Import＆Export|export]] | named [[基礎 Part 11 ESM　Import＆Export|export]] |
 | --- | --- | --- |
 | 数 | 1つだけ | 複数可 |
-| import時の名前 | 自由に変更可 | exportと同名のみ（またはasで変更） |
+| [[基礎 Part 11 ESM　Import＆Export|import]]時の名前 | 自由に変更可 | [[基礎 Part 11 ESM　Import＆Export|export]]と同名のみ（またはasで変更） |
 | 目的 | ファイルの主役を示す | 補助的な機能をまとめる |
-| よく使う場面 | コンポーネント・設定ファイル | ユーティリティ関数群 |
+| よく使う場面 | [[基礎 Part 29 コンポーネント|コンポーネント]]・[[設定ファイル言語|設定ファイル]] | ユーティリティ関数群 |
 
 ---
 
 ## まとめ
 
-- ESMは `import / export` を使う公式モジュールシステム。
+- [[基礎 Part 11 ESM　Import＆Export|ESM]]は `import / export` を使う公式モジュールシステム。
 - `export` は名前付き（複数可）と `export default`（1つだけ）がある。
 - `import` は値のコピーではなく参照（ライブリンク）。
 - `{}` はモジュールオブジェクトから一部を取り出す構文。
-- default export はファイルの主役を明確にできる。
+- [[基礎 Part 36 props バリデーション|default]] [[基礎 Part 11 ESM　Import＆Export|export]] はファイルの主役を明確にできる。
 
 ---
 

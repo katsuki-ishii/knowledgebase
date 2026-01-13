@@ -1,33 +1,34 @@
-﻿---
+---
 base: "[[ナレッジベース.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Vue.js
 作成日時: 2025-12-06T18:21:00
+aliases: [副作用と純粋関数, 副作用, 純粋関数, side effect, pure function]
 ---
-## 1. 副作用とは何か
+## 1. [[基礎 Part 20 副作用と純粋関数|副作用]]とは何か
 
-副作用とは「関数が値を返す以外に外の世界へ影響を与えること」を指す。
+[[基礎 Part 20 副作用と純粋関数|副作用]]とは「関数が値を返す以外に外の世界へ影響を与えること」を指す。
 
 Vue のコンテキストでは特に次が該当する。
 
-- reactive な変数を書き換える
+- [[基礎 Part 5 reactive関数|reactive]] な変数を書き換える
 - DOM を直接操作する
 - API を呼ぶ
 - タイマーを動かす
 - console.log のように外部へ影響を出す
 
-Vue のリアクティブシステムは「値の変化」をトリガーに再計算や再描画を行うため、
+Vue の[[基礎 Part 19 リアクティブエフェクト|リアクティブ]]システムは「値の変化」をトリガーに再計算や再描画を行うため、
 
-computed 内に副作用があると動作が不安定になりやすい。
+[[基礎 Part 18 computed|computed]] 内に[[基礎 Part 20 副作用と純粋関数|副作用]]があると動作が不安定になりやすい。
 
 ---
 
-## 2. 純粋関数とは何か
+## 2. [[基礎 Part 20 副作用と純粋関数|純粋関数]]とは何か
 
-副作用を理解したうえで、その対概念となる「純粋関数」を説明する。
+[[基礎 Part 20 副作用と純粋関数|副作用]]を理解したうえで、その対概念となる「[[基礎 Part 20 副作用と純粋関数|純粋関数]]」を説明する。
 
-純粋関数には以下の条件がある。
+[[基礎 Part 20 副作用と純粋関数|純粋関数]]には以下の条件がある。
 
 ### (1) 入力が同じなら出力も常に同じ
 
@@ -35,7 +36,7 @@ computed 内に副作用があると動作が不安定になりやすい。
 
 外部状態に影響されない。
 
-### (2) 外部の状態を変更しない（副作用を持たない）
+### (2) 外部の状態を変更しない（[[基礎 Part 20 副作用と純粋関数|副作用]]を持たない）
 
 外部変数の変更、ログ出力、API 呼び出しなど、
 
@@ -43,7 +44,7 @@ computed 内に副作用があると動作が不安定になりやすい。
 
 ### 具体例
 
-純粋関数:
+[[基礎 Part 20 副作用と純粋関数|純粋関数]]:
 
 ```javascript
 function double(x) {
@@ -75,24 +76,24 @@ function double(x) {
 
 ---
 
-## 3. computed と純粋関数の関係
+## 3. [[基礎 Part 18 computed|computed]] と[[基礎 Part 20 副作用と純粋関数|純粋関数]]の関係
 
-Vue の computed は「純粋関数として振る舞うこと」を前提に作られている。
+Vue の [[基礎 Part 18 computed|computed]] は「[[基礎 Part 20 副作用と純粋関数|純粋関数]]として振る舞うこと」を前提に作られている。
 
 したがって、以下の性質を持つ。
 
-- reactive な依存が変わらない限り再計算しない（キャッシュされる）
+- [[基礎 Part 5 reactive関数|reactive]] な依存が変わらない限り再計算しない（キャッシュされる）
 - 外部の状態を変更しないことを期待している
 
-このため computed 内で副作用を行うと挙動が崩れる。
+このため [[基礎 Part 18 computed|computed]] 内で[[基礎 Part 20 副作用と純粋関数|副作用]]を行うと挙動が崩れる。
 
 ---
 
-## 4. computed の正しい使い方と危険な例
+## 4. [[基礎 Part 18 computed|computed]] の正しい使い方と危険な例
 
 ### 無限ループの具体例
 
-computed 内で reactive な値を更新すると、依存関係が自分自身に向かって再帰的につながり、無限ループが発生する。
+[[基礎 Part 18 computed|computed]] 内で [[基礎 Part 5 reactive関数|reactive]] な値を更新すると、依存関係が自分自身に向かって再帰的につながり、無限ループが発生する。
 
 ### 例 1: 基本的な無限ループ
 
@@ -139,9 +140,9 @@ const result = computed(() => {
 
 ```
 
-この場合も count.value の更新により computed が再評価され続け、条件が揃うまでループが発生する。終了条件が曖昧な場合はフリーズの原因とな
+この場合も count.value の更新により [[基礎 Part 18 computed|computed]] が再評価され続け、条件が揃うまでループが発生する。終了条件が曖昧な場合はフリーズの原因とな
 
-### 純粋で正しい computed
+### 純粋で正しい [[基礎 Part 18 computed|computed]]
 
 ```javascript
 const count = ref(2);
@@ -149,7 +150,7 @@ const doubled = computed(() => count.value * 2);
 
 ```
 
-### 危険例：computed 内で状態を変更する
+### 危険例：[[基礎 Part 18 computed|computed]] 内で状態を変更する
 
 ```javascript
 const doubled = computed(() => {
@@ -161,11 +162,11 @@ const doubled = computed(() => {
 
 この場合、
 
-reactive value → computed 再計算 → reactive value 更新 → 再計算…
+[[基礎 Part 5 reactive関数|reactive]] value → [[基礎 Part 18 computed|computed]] 再計算 → [[基礎 Part 5 reactive関数|reactive]] value 更新 → 再計算…
 
 という無限ループが発生し、ブラウザがフリーズする可能性がある。
 
-### 非推奨例：軽い副作用
+### 非推奨例：軽い[[基礎 Part 20 副作用と純粋関数|副作用]]
 
 ```javascript
 const doubled = computed(() => {
@@ -177,7 +178,7 @@ const doubled = computed(() => {
 
 再評価回数が Vue に依存するため、挙動理解を妨げる。
 
-### 重大な副作用例
+### 重大な[[基礎 Part 20 副作用と純粋関数|副作用]]例
 
 ```javascript
 const userName = computed(() => {
@@ -191,9 +192,9 @@ const userName = computed(() => {
 
 ---
 
-## 5. 副作用を書く場所
+## 5. [[基礎 Part 20 副作用と純粋関数|副作用]]を書く場所
 
-computed は計算専用であり、値変化に応じた処理（副作用）は watch または watchEffect で行う。
+[[基礎 Part 18 computed|computed]] は計算専用であり、値変化に応じた処理（[[基礎 Part 20 副作用と純粋関数|副作用]]）は [[基礎 Part 22 watch|watch]] または [[基礎 Part 21 watchEffect|watchEffect]] で行う。
 
 ### 正しい例
 
@@ -206,9 +207,9 @@ watch(() => count.value, (newVal) => {
 
 ---
 
-## 6. 図解：副作用と computed の仕組み
+## 6. 図解：[[基礎 Part 20 副作用と純粋関数|副作用]]と [[基礎 Part 18 computed|computed]] の仕組み
 
-### 副作用を持たない computed
+### [[基礎 Part 20 副作用と純粋関数|副作用]]を持たない [[基礎 Part 18 computed|computed]]
 
 ```plain text
  reactive value
@@ -221,7 +222,7 @@ watch(() => count.value, (newVal) => {
 
 ```
 
-### 副作用を持つ computed（危険）
+### [[基礎 Part 20 副作用と純粋関数|副作用]]を持つ [[基礎 Part 18 computed|computed]]（危険）
 
 ```plain text
  reactive value
@@ -241,10 +242,10 @@ watch(() => count.value, (newVal) => {
 
 ## 7. まとめ
 
-- 副作用とは「値を返す以外に外部へ影響する動作」。
-- 純粋関数は「入力が同じなら出力が同じ」「外部へ影響しない」。
-- computed は純粋関数を前提として動作する。
-- 副作用は watch 系に切り出すのが正しい設計である。
+- [[基礎 Part 20 副作用と純粋関数|副作用]]とは「値を返す以外に外部へ影響する動作」。
+- [[基礎 Part 20 副作用と純粋関数|純粋関数]]は「入力が同じなら出力が同じ」「外部へ影響しない」。
+- [[基礎 Part 18 computed|computed]] は[[基礎 Part 20 副作用と純粋関数|純粋関数]]を前提として動作する。
+- [[基礎 Part 20 副作用と純粋関数|副作用]]は [[基礎 Part 22 watch|watch]] 系に切り出すのが正しい設計である。
 
 ## 関連
 - [[基礎 Part 18 computed]]
