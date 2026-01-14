@@ -1,20 +1,20 @@
 {
   "main": {
-    "id": "e4e0acb701320bb8",
+    "id": "c4d05deedcb90ba5",
     "type": "split",
     "children": [
       {
-        "id": "8dbdc7fb043933f4",
+        "id": "65d202c0a419f9b7",
         "type": "tabs",
         "children": [
           {
-            "id": "13e99e0b276219f7",
+            "id": "83463d6a3c048e39",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "bf3fed1608d4ce5b",
+    "id": "b89421d34ea86154",
     "type": "split",
     "children": [
       {
-        "id": "c0357b79b3a63e8b",
+        "id": "d1d1fb389415ce36",
         "type": "tabs",
         "children": [
           {
-            "id": "786168b0e1a311b9",
+            "id": "664c676f1b252729",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +44,7 @@
             }
           },
           {
-            "id": "3bb4a783e42946e8",
+            "id": "be5ec82675f11b86",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -57,40 +57,40 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Search"
+              "title": "検索"
             }
           },
           {
-            "id": "2d8fc2b2be416a35",
+            "id": "bd0cd680f684443b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {},
               "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "title": "ブックマーク"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
-    "id": "c19f75985ed0efa7",
+    "id": "ab647e84f744a8cd",
     "type": "split",
     "children": [
       {
-        "id": "eb994ae0263df6dc",
+        "id": "73ecf8bc2fc666c6",
         "type": "tabs",
         "children": [
           {
-            "id": "f2a8c6d8d80c32d1",
+            "id": "6585bc0143a63e7d",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -103,7 +103,7 @@
             }
           },
           {
-            "id": "00f4bda4cc5a7a66",
+            "id": "32dafca625eea5f9",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -112,11 +112,11 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "アウトゴーイングリンク"
             }
           },
           {
-            "id": "548dd053d5e2d3c1",
+            "id": "3d495d582402b7da",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -127,11 +127,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Tags"
+              "title": "タグ"
             }
           },
           {
-            "id": "bb989c957f18aa8f",
+            "id": "592d84cba4130616",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -141,11 +141,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-archive",
-              "title": "All properties"
+              "title": "すべてのプロパティ"
             }
           },
           {
-            "id": "9773196be190d727",
+            "id": "fecb42cfbd6271bb",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -155,15 +155,14 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "アウトライン"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -173,9 +172,58 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-importer:Open Importer": false
     }
   },
-  "active": "13e99e0b276219f7",
-  "lastOpenFiles": []
+  "active": "83463d6a3c048e39",
+  "lastOpenFiles": [
+    "AWS/“UnauthorizedOperation - Encoded authorization failure message” が出たときのコマンド.md",
+    "AWS/Cognito Authorizer.md",
+    "AWS/IAM ロールの PassRole と AssumeRole をもう二度と忘れないために絵を描いてみた  DevelopersIO.md",
+    "CS/コンパイルとビルド.md",
+    "Vue.js/基礎 Part 1 ディレクトリ構造.md",
+    "CS/ナレッジベース.base",
+    "Vue.js/基礎 Part 19 リアクティブエフェクト.md",
+    "Vue.js/基礎 Part 13 v-on  ハンドラー引数.md",
+    "Vue.js/基礎 Part 37 props 命名規則.md",
+    "Vue.js/基礎 Part 36 props バリデーション.md",
+    "Vue.js/基礎 Part 35 defineProps().md",
+    "Vue.js/基礎 Part 34 コンパイル時マクロ.md",
+    "Vue.js/基礎 Part 33 グローバルCSS.md",
+    "Vue.js/基礎 Part 32 style scoped.md",
+    "Vue.js/基礎 Part 31  属性フォークスルー.md",
+    "Vue.js/基礎 Part 30 コンポーネント登録.md",
+    "Vue.js/基礎 Part 29 コンポーネント.md",
+    "Vue.js/基礎 Part 28 v-for 数字.md",
+    "Vue.js/基礎 Part 27 v-for オブジェクト.md",
+    "Vue.js/基礎 Part 26 v-for 配列.md",
+    "Vue.js/基礎 Part 25 v-show.md",
+    "Vue.js/基礎 Part 24 v-if.md",
+    "Vue.js/基礎 Part 23 class指定.md",
+    "Vue.js/基礎 Part 22 watch.md",
+    "Vue.js/基礎 Part 21 watchEffect.md",
+    "Vue.js/基礎 Part 20 副作用と純粋関数.md",
+    "Vue.js/基礎 Part 18 computed.md",
+    "news",
+    "00.Clippings",
+    "dev tools",
+    "Vue.js",
+    "JS",
+    "CS",
+    "AWS",
+    "無題のファイル.canvas",
+    "Clippings",
+    "knowledgebase/ナレッジベース.base",
+    "image.png",
+    "image 19.png",
+    "image 34.png",
+    "image 27.png",
+    "image 8.png",
+    "image 17.png",
+    "image 37.png",
+    "image 36.png",
+    "image 35.png",
+    "image 33.png"
+  ]
 }
