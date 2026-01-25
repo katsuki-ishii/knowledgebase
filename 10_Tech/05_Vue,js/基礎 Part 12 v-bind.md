@@ -6,9 +6,9 @@ base: "[[Vue,js.base]]"
 作成日時: 2025-11-01T21:26:00
 aliases: [v-bind, vbind, v bind, :, コロン]
 ---
-## [[基礎 Part 12 v-bind|v-bind]]とは
+## [[基礎 v-bind|v-bind Part 12]]とは
 
-[[基礎 Part 12 v-bind|v-bind]]は、Vue.jsにおいてHTMLの属性にJavaScriptの値を動的に結びつける[[基礎 Part 16 ディレクティブ|ディレクティブ]]。テンプレート内で変数の値を属性へ反映させるために使用する。
+[[基礎 v-bind|v-bind Part 12]]は、Vue.jsにおいてHTMLの属性にJavaScriptの値を動的に結びつける[[基礎 ディレクティブ|ディレクティブ Part 16]]。テンプレート内で変数の値を属性へ反映させるために使用する。
 
 ### 基本構文
 
@@ -26,7 +26,7 @@ aliases: [v-bind, vbind, v bind, :, コロン]
 
 ### 主な用途
 
-- 属性に変数を[[基礎 Part 8 宣言・代入・再代入|代入]]
+- 属性に変数を[[基礎 宣言・代入・再代入|代入 Part 8]]
 ```javascript
 <a :href="profileUrl">プロフィールへ</a>
 
@@ -88,7 +88,7 @@ aliases: [v-bind, vbind, v bind, :, コロン]
 | --- | --- | --- |
 | 属性名と変数名が同じ | 省略可（`:src`） | 短く明快 |
 | 属性名と変数名が異なる | 明示（`:src="imageUrl"`） | 可読性重視 |
-| 公開用・共通[[基礎 Part 29 コンポーネント|コンポーネント]] | 明示 | 外部の理解を助ける |
+| 公開用・共通[[基礎 コンポーネント|コンポーネント Part 29]] | 明示 | 外部の理解を助ける |
 | 学習・教育用コード | 明示 | 教育的観点から推奨 |
 
 ### Linterで統一する例
@@ -103,11 +103,11 @@ aliases: [v-bind, vbind, v bind, :, コロン]
 
 ### まとめ
 
-- [[基礎 Part 12 v-bind|v-bind]]はVueで属性とデータを結びつける基本機能
+- [[基礎 v-bind|v-bind Part 12]]はVueで属性とデータを結びつける基本機能
 - 省略記法は便利だが、チーム開発では使い方を統一するべき
 - LinterやFormatterによるルール化が有効
 
 ## 関連
-- [[基礎 Part 6 マスタッシュ構文]]
-- [[基礎 Part 17 v-model]]
-- [[基礎 Part 23 class指定]]
+- [[基礎 Part 39 マスタッシュ構文 Part 6]]
+- [[基礎 v-model Part 17]]
+- [[基礎 class指定]]

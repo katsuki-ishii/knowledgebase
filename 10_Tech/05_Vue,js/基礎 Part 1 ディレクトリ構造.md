@@ -77,6 +77,6 @@ aliases: [ディレクトリ構造]
     - **[[ESLint＆Prettier|Prettier]]**: コードのフォーマットを自動的に統一し、チーム開発でのコードスタイルを維持します。
 
 ## 関連
-- [[基礎 Part 2 index.htmlとmain.js]]
-- [[基礎 Part 3 App.vue]]
-- [[基礎 Part 10 setup構文]]
+- [[基礎 Part 10 index.htmlとmain.js Part 2]]
+- [[基礎 App.vue Part 3]]
+- [[基礎 setup構文]]

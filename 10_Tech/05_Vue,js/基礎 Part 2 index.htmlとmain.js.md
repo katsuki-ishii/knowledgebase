@@ -56,10 +56,10 @@ app.mount('#app')
 | 行 | 内容 | 補足 |
 | --- | --- | --- |
 | `import { createApp } from 'vue'` | Vueライブラリのアプリ生成関数を読み込む | Vue 3 の Composition API 用構文 |
-| `import App from './App.vue'` | アプリ全体の[[基礎 Part 29 コンポーネント|ルートコンポーネント]] | UI とロジックの中心 |
+| `import App from './App.vue'` | アプリ全体の[[基礎 コンポーネント|ルートコンポーネント Part 29]] | UI とロジックの中心 |
 | `import router from './router'` | ページ遷移（Vue Router）を読み込む | SPA のルーティングを管理 |
 | `app.use(router)` | ルーターをアプリに登録する | プラグインとして組み込む |
-| `app.mount('#app')` | [[基礎 Part 2 index.htmlとmain.js|index.html]] の `#app` に描画を開始する | ここでUIが表示される |
+| `app.mount('#app')` | [[基礎 index.htmlとmain.js|index.html Part 2]] の `#app` に描画を開始する | ここでUIが表示される |
 
 ## 3. [[Vite HMR|Vite]] がしている裏側の仕事
 
@@ -85,7 +85,7 @@ index.html
 1. **HTML解析**：`<div id="app">` を見つける（まだ空）
 2. `**main.js**`** 読み込み**：`createApp(App)` が呼ばれる
 3. **Vueアプリ生成**：`App.vue` が仮想DOMとして構築される
-4. **マウント処理**：`#app` に Vue [[基礎 Part 29 コンポーネント|コンポーネント]]が描画される
+4. **マウント処理**：`#app` に Vue [[基礎 コンポーネント|コンポーネント Part 29]]が描画される
 5. **UI表示完了**
 
 ## 5. `/src/main.js` の意味
@@ -112,6 +112,6 @@ index.html
 > `<script type="module" src="/src/main.js">` は「Vueアプリを起動するスイッチ」である。
 
 ## 関連
-- [[基礎 Part 1 ディレクトリ構造]]
-- [[基礎 Part 3 App.vue]]
-- [[基礎 Part 10 setup構文]]
+- [[基礎 Part 10 ディレクトリ構造 Part 1]]
+- [[基礎 App.vue Part 3]]
+- [[基礎 setup構文]]

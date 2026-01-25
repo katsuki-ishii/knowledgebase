@@ -6,13 +6,13 @@ base: "[[Vue,js.base]]"
 作成日時: 2025-12-27T15:23:00
 aliases: [props バリデーション, propsバリデーション, props validation, type, default, required, validator]
 ---
-# Vue 3 [[基礎 Part 35 defineProps()|defineProps]] 学習まとめ
+# Vue 3 [[基礎 defineProps()|defineProps Part 35]] 学習まとめ
 
-## 1. [[基礎 Part 35 defineProps()|props]] とは何か
+## 1. [[基礎 defineProps()|props Part 35]] とは何か
 
-[[基礎 Part 35 defineProps()|props]] は「親[[基礎 Part 29 コンポーネント|コンポーネント]]から子[[基礎 Part 29 コンポーネント|コンポーネント]]に渡される入力値」。
+[[基礎 defineProps()|props Part 35]] は「親[[基礎 コンポーネント|コンポーネント Part 29]]から子[[基礎 コンポーネント|コンポーネント Part 29]]に渡される入力値」。
 
-子[[基礎 Part 29 コンポーネント|コンポーネント]]側では **読み取り専用** であり、直接変更してはいけない。
+子[[基礎 コンポーネント|コンポーネント Part 29]]側では **読み取り専用** であり、直接変更してはいけない。
 
 ```javascript
 // 親コンポーネント側の利用例
@@ -34,21 +34,21 @@ MyButton({
 
 ---
 
-## 2. [[基礎 Part 35 defineProps()|defineProps]] の役割（軽い recap）
+## 2. [[基礎 defineProps()|defineProps Part 35]] の役割（軽い recap）
 
-`defineProps` は子[[基礎 Part 29 コンポーネント|コンポーネント]]が受け取る [[基礎 Part 35 defineProps()|props]] を[[基礎 Part 8 宣言・代入・再代入|宣言]]するための仕組み。
+`defineProps` は子[[基礎 コンポーネント|コンポーネント Part 29]]が受け取る [[基礎 defineProps()|props Part 35]] を[[基礎 宣言・代入・再代入|宣言 Part 8]]するための仕組み。
 
 - 親から何が渡ってくるかを明示する
-- [[基礎 Part 29 コンポーネント|コンポーネント]]の API を分かりやすくする
+- [[基礎 コンポーネント|コンポーネント Part 29]]の API を分かりやすくする
 - 開発中の警告や補完の材料になる
 
 詳細な説明は別途まとめ済みのため、ここでは概要のみとする。
 
 ---
 
-## 3. [[基礎 Part 36 props バリデーション|type]] とは何か
+## 3. [[基礎 props バリデーション|type Part 36]] とは何か
 
-`type` は「その [[基礎 Part 35 defineProps()|props]] に入る値の大まかな種類」を示す。
+`type` は「その [[基礎 defineProps()|props Part 35]] に入る値の大まかな種類」を示す。
 
 ```javascript
 defineProps({
@@ -70,9 +70,9 @@ defineProps({
 
 ---
 
-## 4. [[基礎 Part 36 props バリデーション|default]] とは何か
+## 4. [[基礎 props バリデーション|default Part 36]] とは何か
 
-`default` は「親から [[基礎 Part 35 defineProps()|props]] が渡されなかった場合の初期値」。
+`default` は「親から [[基礎 defineProps()|props Part 35]] が渡されなかった場合の初期値」。
 
 ```javascript
 defineProps({
@@ -100,9 +100,9 @@ defineProps({
 
 ---
 
-## 5. [[基礎 Part 36 props バリデーション|required]] とは何か
+## 5. [[基礎 props バリデーション|required Part 36]] とは何か
 
-`required: true` は「必ず渡してほしい [[基礎 Part 35 defineProps()|props]]」であることを示す。
+`required: true` は「必ず渡してほしい [[基礎 defineProps()|props Part 35]]」であることを示す。
 
 ```javascript
 defineProps({
@@ -118,7 +118,7 @@ defineProps({
 
 ---
 
-## 6. [[基礎 Part 36 props バリデーション|validator]] とは何か
+## 6. [[基礎 props バリデーション|validator Part 36]] とは何か
 
 `validator` は `type` よりも **細かい条件** を自分で定義するための関数。
 
@@ -135,9 +135,9 @@ defineProps({
 
 ```
 
-### [[基礎 Part 36 props バリデーション|validator]] の性質
+### [[基礎 props バリデーション|validator Part 36]] の性質
 
-- 引数は渡された [[基礎 Part 35 defineProps()|props]] の値
+- 引数は渡された [[基礎 defineProps()|props Part 35]] の値
 - true を返すと OK
 - false を返すと **警告が出るだけ**
 - 値は修正されない
@@ -174,7 +174,7 @@ defineProps({
 
 ---
 
-## 8. 図解：[[基礎 Part 35 defineProps()|props]] チェックの位置づけ
+## 8. 図解：[[基礎 defineProps()|props Part 35]] チェックの位置づけ
 
 ```plain text
 親コンポーネント
@@ -197,7 +197,7 @@ defineProps({
 
 ## 9. 実務での正しい理解
 
-- [[基礎 Part 36 props バリデーション|type]] / [[基礎 Part 36 props バリデーション|required]] / [[基礎 Part 36 props バリデーション|validator]] は **安全装置ではない**
+- [[基礎 props バリデーション|type Part 36]] / [[基礎 props バリデーション|required Part 36]] / [[基礎 props バリデーション|validator Part 36]] は **安全装置ではない**
 - 開発中にミスへ気づくための仕組み
 - 設計意図を伝えるドキュメントの役割が大きい
 
@@ -225,12 +225,12 @@ defineProps({
 
 ## 11. まとめ
 
-- [[基礎 Part 36 props バリデーション|type]]：値の大分類を示す
-- [[基礎 Part 36 props バリデーション|default]]：未指定時の初期値
-- [[基礎 Part 36 props バリデーション|required]]：必須[[基礎 Part 8 宣言・代入・再代入|宣言]]（警告のみ）
-- [[基礎 Part 36 props バリデーション|validator]]：より細かい条件チェック（警告のみ）
+- [[基礎 props バリデーション|type Part 36]]：値の大分類を示す
+- [[基礎 props バリデーション|default Part 36]]：未指定時の初期値
+- [[基礎 props バリデーション|required Part 36]]：必須[[基礎 宣言・代入・再代入|宣言 Part 8]]（警告のみ）
+- [[基礎 props バリデーション|validator Part 36]]：より細かい条件チェック（警告のみ）
 - いずれも開発中の補助であり、実行時の保証ではない
 
 ## 関連
-- [[基礎 Part 35 defineProps()]]
-- [[基礎 Part 37 props 命名規則]]
+- [[基礎 Part 39 defineProps() Part 35]]
+- [[基礎 props 命名規則]]

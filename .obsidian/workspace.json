@@ -11,10 +11,14 @@
             "id": "83463d6a3c048e39",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "グラフビュー"
+              "type": "markdown",
+              "state": {
+                "file": "10_Tech/05_Vue,js/基礎 Part 39 vue-i18n.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "基礎 Part 39 vue-i18n"
             }
           }
         ]
@@ -40,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "ファイルエクスプローラ"
+              "title": "Files"
             }
           },
           {
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "10_Tech/05_Vue,js/基礎 Part 39 vue-i18n.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "バックリンク"
+              "title": "Backlinks for 基礎 Part 39 vue-i18n"
             }
           },
           {
@@ -166,47 +171,47 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:クイックスイッチャーを開く": false,
-      "graph:グラフビューを開く": false,
-      "canvas:新規キャンバスを作成": false,
-      "daily-notes:今日のデイリーノートを開く": false,
-      "templates:テンプレートを挿入": false,
-      "command-palette:コマンドパレットを開く": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "obsidian-importer:Open Importer": false
     }
   },
   "active": "83463d6a3c048e39",
   "lastOpenFiles": [
-    "12_Health/寿命と老化.md",
-    "12_Health/寿命と廊下.md",
-    "12_Health",
-    "10_Tech/01_CS/設定ファイル言語.md",
-    "11_Psychology/認知負荷・UX心理学・スキーマ理論まとめ.md",
-    "11_Psychology",
-    "10_Tech/01_CS/スナップショット基礎.md",
-    "10_Tech/01_CS/ナレッジベース.base",
-    "15_Ideas/ITと不完全さに惹かれる理由.md",
-    "10_Tech/DevTools/Tsumiki.md",
-    "10_Tech/DevTools/ESLint＆Prettier.md",
-    "10_Tech/04_JavaScript/基礎 Part 9ブロックとブロックスコープ.md",
-    "10_Tech/04_JavaScript/基礎 Part 8 宣言・代入・再代入.md",
-    "10_Tech/04_JavaScript/基礎 Part 7 TruthyとFalsey.md",
-    "10_Tech/04_JavaScript/基礎 Part 6 Map関数の自作.md",
-    "10_Tech/04_JavaScript/基礎 Part 5セミコロン・パース.md",
-    "10_Tech/04_JavaScript/基礎 Part 4 前置インクリメント、後置インクリメント.md",
-    "10_Tech/04_JavaScript/基礎 Part 3 関数のプロパティ化.md",
     "10_Tech/04_JavaScript/基礎 Part 2クロージャ.md",
-    "10_Tech/04_JavaScript/基礎 Part 14 スプレット構文.md",
-    "10_Tech/04_JavaScript/基礎 Part 13 分割代入.md",
-    "10_Tech/04_JavaScript/基礎 Part 12 三項演算子.md",
-    "10_Tech/04_JavaScript/基礎 Part 11 ESM　Import＆Export.md",
-    "10_Tech/04_JavaScript/基礎 Part 10 関数の定義方法3つ.md",
     "10_Tech/04_JavaScript/基礎 Part 1 巻き上げとTDZ.md",
-    "10_Tech/05_Vue,js/基礎 Part 9 オブジェクト内のref.md",
-    "10_Tech/05_Vue,js/基礎 Part 8 reactiveとrefの併用.md",
-    "10_Tech/05_Vue,js/基礎 Part 7 v-html.md",
-    "10_Tech/05_Vue,js/基礎 Part 6 マスタッシュ構文.md",
+    "10_Tech/05_Vue,js/基礎 Part 26 v-show.md",
+    "10_Tech/05_Vue,js/基礎 Part 25 v-if.md",
+    "10_Tech/05_Vue,js/基礎 Part 21 副作用と純粋関数.md",
+    "10_Tech/05_Vue,js/基礎 Part 22 watchEffect.md",
+    "10_Tech/05_Vue,js/基礎 Part 20 リアクティブエフェクト.md",
+    "10_Tech/05_Vue,js/基礎 Part 39 vue-i18n.md",
+    "README.md",
+    "10_Tech/05_Vue,js/基礎 Part 15 イベントオブジェクト.md",
+    "10_Tech/05_Vue,js/基礎 Part 14 v-on ハンドラー引数.md",
+    "10_Tech/05_Vue,js/基礎 Part 14 イベントオブジェクト_temp.md",
+    "10_Tech/05_Vue,js/基礎 Part 38 vue-i18n.md",
+    "10_Tech/05_Vue,js/基礎 Part 15 v-on ハンドラー引数.md",
+    "10_Tech/05_Vue,js/基礎 Part 16 Vueコード規約.md",
+    "10_Tech/05_Vue,js/基礎 Part 17 ディレクティブ.md",
+    "10_Tech/05_Vue,js/基礎 Part 18 v-model.md",
+    "10_Tech/05_Vue,js/基礎 Part 19 computed.md",
+    "10_Tech/05_Vue,js/基礎 Part 23 watch.md",
+    "10_Tech/05_Vue,js/基礎 Part 24 class指定.md",
+    "10_Tech/05_Vue,js/基礎 Part 27 v-for 配列.md",
+    "10_Tech/05_Vue,js/基礎 Part 28 v-for オブジェクト.md",
+    "10_Tech/05_Vue,js/基礎 Part 29 v-for 数字.md",
+    "10_Tech/05_Vue,js/基礎 Part 30 コンポーネント.md",
+    "10_Tech/05_Vue,js/基礎 Part 31 コンポーネント登録.md",
+    "10_Tech/05_Vue,js/基礎 Part 32  属性フォークスルー.md",
+    "12_Health",
+    "11_Psychology",
+    "10_Tech/01_CS/ナレッジベース.base",
     "10_Tech/DevTools",
     "10_Tech/04_JavaScript",
     "10_Tech/02_git",

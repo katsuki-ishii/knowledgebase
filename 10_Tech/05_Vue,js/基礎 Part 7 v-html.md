@@ -6,9 +6,9 @@ base: "[[Vue,js.base]]"
 作成日時: 2025-10-15T02:28:00
 aliases: [v-html, vhtml, v html]
 ---
-# 1. [[基礎 Part 16 ディレクティブ|ディレクティブ]]とは
+# 1. [[基礎 ディレクティブ|ディレクティブ Part 16]]とは
 
-Vue.jsの[[基礎 Part 16 ディレクティブ|ディレクティブ]]は、HTMLを拡張するための特別な属性。`v-`で始まる形で要素に記述し、Vueの[[基礎 Part 19 リアクティブエフェクト|リアクティブ]]なデータを使って動的な挙動を実現する。
+Vue.jsの[[基礎 ディレクティブ|ディレクティブ Part 16]]は、HTMLを拡張するための特別な属性。`v-`で始まる形で要素に記述し、Vueの[[基礎 リアクティブエフェクト|リアクティブ Part 19]]なデータを使って動的な挙動を実現する。
 
 例：
 
@@ -21,22 +21,22 @@ Vue.jsの[[基礎 Part 16 ディレクティブ|ディレクティブ]]は、HTM
 
 ---
 
-## 2. 主な組み込み[[基礎 Part 16 ディレクティブ|ディレクティブ]]
+## 2. 主な組み込み[[基礎 ディレクティブ|ディレクティブ Part 16]]
 
-| [[基礎 Part 16 ディレクティブ|ディレクティブ]] | 機能 | 例 |
+| [[基礎 ディレクティブ|ディレクティブ Part 16]] | 機能 | 例 |
 | --- | --- | --- |
 | `v-bind` | 属性値をデータにバインド | `<img :src="imageUrl" />` |
-| `v-on` | [[基礎 Part 14 イベントオブジェクト|イベント]]を監視 | `<button @click="handleClick">クリック</button>` |
+| `v-on` | [[基礎 イベントオブジェクト|イベント Part 15]]を監視 | `<button @click="handleClick">クリック</button>` |
 | `v-if` / `v-else` / `v-show` | 条件で表示切り替え | `<div v-if="isActive">有効</div>` |
 | `v-for` | 配列やオブジェクトをループ表示 | `<li v-for="item in items">{{ item }}</li>` |
-| `v-model` | フォームとの[[基礎 Part 17 v-model|双方向バインディング]] | `<input v-model="username" />` |
+| `v-model` | フォームとの[[基礎 v-model|双方向バインディング Part 17]] | `<input v-model="username" />` |
 | `v-html` | 生のHTMLを挿入 | `<div v-html="htmlContent"></div>` |
 
 ---
 
-## 3. [[基礎 Part 7 v-html|v-html]]の概要
+## 3. [[基礎 v-html|v-html Part 7]]の概要
 
-`v-html`は、指定した文字列をHTMLとしてそのままDOMに挿入する[[基礎 Part 16 ディレクティブ|ディレクティブ]]。通常の[[基礎 Part 6 マスタッシュ構文|Mustache]]構文（`{{ ... }}`）はHTMLタグをエスケープして出力するが、`v-html`はタグを解釈して描画する。
+`v-html`は、指定した文字列をHTMLとしてそのままDOMに挿入する[[基礎 ディレクティブ|ディレクティブ Part 16]]。通常の[[基礎 マスタッシュ構文|Mustache Part 6]]構文（`{{ ... }}`）はHTMLタグをエスケープして出力するが、`v-html`はタグを解釈して描画する。
 
 例：
 
@@ -62,13 +62,13 @@ export default {
 結果：
 
 - 通常出力 → `<strong>太字テキスト</strong>` と文字列として表示
-- [[基礎 Part 7 v-html|v-html]]出力 → 太字の「太字テキスト」として表示
+- [[基礎 v-html|v-html Part 7]]出力 → 太字の「太字テキスト」として表示
 
 ---
 
-## 4. [[基礎 Part 7 v-html|v-html]]の注意点
+## 4. [[基礎 v-html|v-html Part 7]]の注意点
 
-### [[基礎 Part 11 XSSとsanitize|XSS]]（クロスサイトスクリプティング）リスク
+### [[基礎 XSSとsanitize|XSS Part 11]]（クロスサイトスクリプティング）リスク
 
 `v-html`は渡されたHTMLをそのまま挿入するため、ユーザー入力や外部データを直接扱うと危険。悪意あるスクリプトが実行される可能性がある。
 
@@ -83,9 +83,9 @@ rawHtml = '<img src=x onerror="alert(\'攻撃\')">'
 
 対策：
 
-安全なHTMLのみ使用するか、[[基礎 Part 11 XSSとsanitize|サニタイズ]]処理を行う。
+安全なHTMLのみ使用するか、[[基礎 XSSとsanitize|サニタイズ Part 11]]処理を行う。
 
-例：[[基礎 Part 11 XSSとsanitize|DOMPurify]]を使用
+例：[[基礎 XSSとsanitize|DOMPurify Part 11]]を使用
 
 ```javascript
 import DOMPurify from 'dompurify'
@@ -113,7 +113,7 @@ const safeHtml = DOMPurify.sanitize(userInputHtml)
 ### 避けるべきケース
 
 - ユーザー入力を直接HTML化する場合
-- Vueの[[基礎 Part 19 リアクティブエフェクト|リアクティブ]]バインディングを必要とする場合
+- Vueの[[基礎 リアクティブエフェクト|リアクティブ Part 19]]バインディングを必要とする場合
 
 ---
 
@@ -146,13 +146,13 @@ const safeHtml = computed(() =>
 | --- | --- |
 | 構文 | `<div v-html="someHtml"></div>` |
 | 機能 | 文字列をHTMLとして挿入 |
-| セキュリティ | [[基礎 Part 11 XSSとsanitize|XSS]]のリスクが高い |
+| セキュリティ | [[基礎 XSSとsanitize|XSS Part 11]]のリスクが高い |
 | Vue構文の有効性 | 無効（`{{}}`や`v-on`は動作しない） |
-| スタイル適用 | [[基礎 Part 32 style scoped|scoped CSS]]が効かない場合あり |
-| 対策 | [[基礎 Part 11 XSSとsanitize|DOMPurify]]等で[[基礎 Part 11 XSSとsanitize|サニタイズ]] |
+| スタイル適用 | [[基礎 style scoped|scoped CSS Part 32]]が効かない場合あり |
+| 対策 | [[基礎 XSSとsanitize|DOMPurify Part 11]]等で[[基礎 XSSとsanitize|サニタイズ Part 11]] |
 
-`v-html`は強力だが安全に扱う必要がある。信頼できるHTMLのみを挿入し、ユーザー入力には必ず[[基礎 Part 11 XSSとsanitize|サニタイズ]]処理を行う。
+`v-html`は強力だが安全に扱う必要がある。信頼できるHTMLのみを挿入し、ユーザー入力には必ず[[基礎 XSSとsanitize|サニタイズ Part 11]]処理を行う。
 
 ## 関連
-- [[基礎 Part 11 XSSとsanitize]]
-- [[基礎 Part 6 マスタッシュ構文]]
+- [[基礎 Part 6 XSSとsanitize Part 11]]
+- [[基礎 マスタッシュ構文]]
