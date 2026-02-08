@@ -1,22 +1,51 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [],
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "[\"base\":CS",
+      "color": {
+        "a": 1,
+        "rgb": 15592941
+      }
+    },
+    {
+      "query": "[\"base\":AWS",
+      "color": {
+        "a": 1,
+        "rgb": 2462180
+      }
+    },
+    {
+      "query": "[\"base\":Vue.js",
+      "color": {
+        "a": 1,
+        "rgb": 240398
+      }
+    },
+    {
+      "query": "[\"base\":JavaScript",
+      "color": {
+        "a": 1,
+        "rgb": 16514816
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": true,
+  "collapse-forces": false,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.2292013594174927,
+  "scale": 0.3091046442928343,
   "close": true
 }
