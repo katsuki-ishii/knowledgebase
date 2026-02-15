@@ -1,0 +1,275 @@
+---
+base: "[[Vue.js.base]]"
+作成者: Katsubo Katsubo
+カテゴリー:
+  - Vue.js
+作成日時: 2025-12-07T16:42:00
+aliases: [watch, Watch]
+---
+# Vue Composition API における [[基礎 Part 23 watch|watch]] のまとめ
+
+## 1. [[基礎 Part 23 watch|watch]] の本質
+
+[[基礎 Part 23 watch|watch]] は[[基礎 Part 20 リアクティブエフェクト|リアクティブ]]な値が変化した際に[[基礎 Part 21 副作用と純粋関数|副作用]]処理を実行する仕組み。[[基礎 Part 21 副作用と純粋関数|副作用]]とは API の呼び出し、[[DTOバリデーション|バリデーション]]、localStorage との同期、ログ出力などを指す。値を返すのではなく、処理を実行する点が [[基礎 Part 19 computed|computed]] との決定的な違い。
+
+## 2. 基本構文
+
+```javascript
+watch(source, callback, options?)
+
+```
+
+- source: [[基礎 Part 4 ref関数|ref]]、[[基礎 Part 5 reactive関数|reactive]] の getter 関数、複数値の配列など
+- callback: (newValue, oldValue) => {...}
+- options: immediate、deep、flush など
+
+## 3. 基本的な流れ（図解）
+
+```plain text
+[ reactive 値 ]
+       │ 値が変化する
+       ▼
+    watch(source)
+       │ 発火判定
+       ▼
+ callback(newValue, oldValue)
+
+```
+
+## 4. 具体例
+
+### [[基礎 Part 4 ref関数|ref]] をそのまま監視する
+
+```javascript
+const count = ref(0)
+
+watch(count, (newVal, oldVal) => {
+  console.log("カウントが変化", oldVal, "→", newVal)
+})
+
+```
+
+### [[基礎 Part 5 reactive関数|reactive]] のプロパティを監視（getter を使う）
+
+```javascript
+const state = reactive({ name: "katsuki", age: 25 })
+
+watch(
+  () => state.age,
+  (newVal, oldVal) => {
+    console.log("age が変化した")
+  }
+)
+
+```
+
+### 複数の値を同時に監視
+
+```javascript
+const first = ref("")
+const last = ref("")
+
+watch([first, last], ([newF, newL], [oldF, oldL]) => {
+  console.log("どちらかが変わった")
+})
+
+```
+
+## 5. getter 関数とは
+
+getter 関数は「値を返すだけの関数」。[[基礎 Part 23 watch|watch]] が何を監視するべきかを正確に指定するために使用する。
+
+具体例:
+
+```javascript
+() => state.age
+
+```
+
+### 図解
+
+```plain text
+ state ----------------------
+  │      │        │
+ name   age      email
+          ▲
+          └ watch が getter により監視対象を特定
+
+```
+
+## 6. [[基礎 Part 23 watch|watch]] の代表的な使用場面
+
+### 1. 入力値に応じて外部処理を行う
+
+```javascript
+watch(keyword, (v) => {
+  fetchSearch(v)
+})
+
+```
+
+### 2. フォームの[[DTOバリデーション|バリデーション]]
+
+```javascript
+watch(email, (value) => {
+  emailError.value = validateEmail(value)
+})
+
+```
+
+### 3. 外部ストレージとの同期
+
+```javascript
+watch(currentPage, (v) => {
+  localStorage.setItem("page", v)
+})
+
+```
+
+### 4. [[HTMLのclass, id, style|ID]] の変更に応じてデータ再取得
+
+```javascript
+watch(selectedId, async (id) => {
+  detail.value = await fetchDetail(id)
+})
+
+```
+
+## 7. [[基礎 Part 22 watchEffect|watchEffect]] との違い（図解）
+
+### [[基礎 Part 23 watch|watch]]
+
+```plain text
+あなたが指定した値のみを監視
+
+[count] ───► watch ───► callback
+
+```
+
+### [[基礎 Part 22 watchEffect|watchEffect]]
+
+```plain text
+watchEffect 内でアクセスした全ての reactive を監視
+
+         ┌──────── count
+         │
+watchEffect()
+         │──────── state.name
+         └──────── その他参照値
+
+```
+
+## 8. [[基礎 Part 23 watch|watch]] を使うべきでない場面
+
+### 単なる値の計算
+
+```javascript
+const fullName = computed(() => first.value + last.value)
+
+```
+
+### UI 表示の切り替えだけの場合
+
+[[基礎 Part 23 watch|watch]] を使う必要はない。テンプレート側の条件分岐や [[基礎 Part 19 computed|computed]] で対応可能。
+
+## 9. 実務でのベストプラクティス
+
+1. [[基礎 Part 4 ref関数|ref]] はそのまま [[基礎 Part 23 watch|watch]] する
+2. [[基礎 Part 5 reactive関数|reactive]] の部分監視は getter 関数で統一する
+3. 複数監視は配列で行う
+4. immediate を使う場合は理由をコメントで明示する
+5. [[基礎 Part 22 watchEffect|watchEffect]] は用途を限定する
+
+## 10. [[基礎 Part 23 watch|watch]] の options の代表例
+
+### immediate
+
+[[基礎 Part 23 watch|watch]] 登録時に初回の callback を即時実行する。
+
+例:
+
+```javascript
+watch(keyword, handler, {
+  immediate: true
+})
+
+```
+
+用途:
+
+- 画面ロード時に初回データを取得したい
+- 現在の状態に基づく初期処理を行いたい
+
+---
+
+### deep
+
+オブジェクトや配列のネストした変更も検知する。
+
+Composition API で [[基礎 Part 5 reactive関数|reactive]] をそのまま監視した場合は内部的に deep 相当になるが、getter を使う監視では deep は不要。
+
+例:
+
+```javascript
+watch(state, handler, {
+  deep: true
+})
+
+```
+
+用途:
+
+- オブジェクト内部のプロパティが変更された時に処理したい
+
+---
+
+### flush
+
+[[基礎 Part 23 watch|watch]] の callback を実行するタイミングを制御する。
+
+- `flush: 'pre'` [[基礎 Part 30 コンポーネント|コンポーネント]]更新前に実行
+- `flush: 'post'` DOM 更新後に実行（デフォルト）
+- `flush: 'sync'` 同期的に即実行（特殊用途）
+
+例:
+
+```javascript
+watch(count, handler, {
+  flush: 'post'
+})
+
+```
+
+用途:
+
+- DOM 更新後でないと正しく取得できない情報を扱う場合（post）
+- DOM 更新前にロジックを実行したい場合（pre）
+- 特殊なパフォーマンスチューニング（sync）
+
+---
+
+## 11. 総合図解
+
+```plain text
+ ref / getter / reactive
+          │
+          ▼
+       watch
+          │ options(immediate / deep / flush) の動作に従う
+          ▼
+ callback(newValue, oldValue)
+
+```
+
+```plain text
+ ref / getter / reactive
+          │
+          ▼
+       watch
+          │ flush タイミングに従って発火
+          ▼
+ callback(newValue, oldValue)
+
+```
+
+以上を押さえておくと、Composition API における [[基礎 Part 23 watch|watch]] の動作と使いどころが明確に理解できる。

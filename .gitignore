@@ -3,3 +3,6 @@
 
 # Obsidian settings (optional - uncomment if you don't want to track these)
 # .obsidian/
+
+# Plugins that may contain secrets / local config
+.obsidian/plugins/remotely-save/
