@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:news.ycombinator.com)",
+      "WebFetch(domain:releasebot.io)",
+      "WebFetch(domain:llm-stats.com)",
+      "WebFetch(domain:www.cnbc.com)",
+      "WebFetch(domain:techcrunch.com)",
+      "WebFetch(domain:siliconangle.com)",
+      "WebFetch(domain:gizmodo.com)",
+      "WebFetch(domain:www.axios.com)",
+      "WebFetch(domain:www.sharecast.com)",
+      "WebFetch(domain:defensescoop.com)",
+      "WebFetch(domain:www.androidheadlines.com)",
+      "WebFetch(domain:www.apple.com)",
+      "WebFetch(domain:nvidianews.nvidia.com)",
+      "WebFetch(domain:venturebeat.com)",
+      "WebFetch(domain:arcprize.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(uvx:*)",
+      "Bash(powershell:*)",
+      "WebFetch(domain:www.reddit.com)",
+      "Bash(curl:*)",
+      "Bash(rm:*)",
+      "Bash(git pull:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "reddit"
+  ]
+}

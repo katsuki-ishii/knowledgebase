@@ -82,7 +82,3 @@ Vue 3（Composition API）と[[Vite HMR|Vite]]を組み合わせた場合、`@vi
 | 仕組み | サーバーがファイル変更を検知し[[Web Socket|WebSocket]]で通知、ブラウザが該当モジュールを差し替え |
 | 利点 | 即時反映、状態保持、高速な開発体験 |
 | 関連技術 | [[基礎 Part 11 ESM　Import＆Export|ESM]]（ECMAScript Modules）、[[Web Socket|WebSocket]]、Vue [[Vite HMR|HMR]] runtime |
-
-## 関連
-- [[Web Socket]]
-- [[コンパイルとビルド]]

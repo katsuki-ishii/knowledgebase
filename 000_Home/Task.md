@@ -1,11 +1,16 @@
 ---
+
 base: "[[Home.base]]"
 作成者: Katsubo Katsubo
 カテゴリー:
   - Home
 作成日時: 2026-02-02T23:45:00
-aliases: [Task, タスク, To do]
+aliases:
+  - Task
+  - タスク
+  - To do
 kanban-plugin: board
+
 ---
 
 ## To do
@@ -21,9 +26,8 @@ kanban-plugin: board
 
 ## today
 
-- [ ] 音楽機器や時計配送
 - [ ] 運転免許証更新確認
-- [ ] 皮膚科で処方箋更新
+- [ ] 音楽機器や時計配送
 
 
 ## ongoing
@@ -32,6 +36,20 @@ kanban-plugin: board
 
 ## done
 
+- [ ] 泉の結婚式準備
+	- [x] 白シャツ
+	- [x] クリーニング
+	- [x] 靴下
+	- [x] ネクタイピン
+	- [x] ハンカチーフ
+	- [x] 散髪
+	- [x] 新幹線
+	- [x] 帰り飛行機
+	- [x] 靴
+	- [x] コート
+- [ ] スキーPDF
+- [ ] 純ちゃんと牛角
+- [ ] 皮膚科で処方箋更新
 - [x] 水買う
 - [x] JSの議論確認
 - [x] 布団洗濯

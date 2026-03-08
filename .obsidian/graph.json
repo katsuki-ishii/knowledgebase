@@ -8,31 +8,45 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "[\"base\":CS",
+      "query": "[base: CS]",
       "color": {
         "a": 1,
-        "rgb": 15592941
+        "rgb": 7041696
       }
     },
     {
-      "query": "[\"base\":AWS",
+      "query": "[base: Web]",
       "color": {
         "a": 1,
-        "rgb": 2462180
+        "rgb": 26316
       }
     },
     {
-      "query": "[\"base\":Vue.js",
+      "query": "[base: AWS]",
       "color": {
         "a": 1,
-        "rgb": 240398
+        "rgb": 16750848
       }
     },
     {
-      "query": "[\"base\":JavaScript",
+      "query": "[base: JavaScript]",
       "color": {
         "a": 1,
-        "rgb": 16514816
+        "rgb": 15983679
+      }
+    },
+    {
+      "query": "[base: Vue.js]",
+      "color": {
+        "a": 1,
+        "rgb": 4372611
+      }
+    },
+    {
+      "query": "[base: Life]",
+      "color": {
+        "a": 1,
+        "rgb": 14935011
       }
     }
   ],
@@ -41,11 +55,11 @@
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": false,
+  "collapse-forces": true,
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.3091046442928343,
+  "scale": 0.21840684036818542,
   "close": true
 }
